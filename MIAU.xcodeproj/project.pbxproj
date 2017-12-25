@@ -18,11 +18,26 @@
 		567149361FF02E3B00811866 /* MarvelImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567149351FF02E3B00811866 /* MarvelImageSize.swift */; };
 		567149391FF032EB00811866 /* MarvelAPIConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567149381FF032EB00811866 /* MarvelAPIConnector.swift */; };
 		5671493D1FF03C4700811866 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671493C1FF03C4700811866 /* String+MD5.swift */; };
+		56917C291FF1599C0036EEAD /* MIAUTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56917C281FF1599C0036EEAD /* MIAUTests.swift */; };
+		56917C311FF15A040036EEAD /* MarvelAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56917C301FF15A040036EEAD /* MarvelAPITest.swift */; };
+		744FC07E506FF11E19C5222E /* Pods_MIAUTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5755E4F063796797AE97111 /* Pods_MIAUTests.framework */; };
 		FA5E570244878D1479B71263 /* Pods_MIAU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D7AD302CD3E936CDF48107 /* Pods_MIAU.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		56917C2B1FF1599C0036EEAD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5671490D1FF018CB00811866 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 567149141FF018CB00811866;
+			remoteInfo = MIAU;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		25D7AD302CD3E936CDF48107 /* Pods_MIAU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MIAU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43CDA2087B58E468AA454578 /* Pods-MIAUTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIAUTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MIAUTests/Pods-MIAUTests.debug.xcconfig"; sourceTree = "<group>"; };
+		530C34222181057AAD1A41A8 /* Pods-MIAUTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIAUTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MIAUTests/Pods-MIAUTests.release.xcconfig"; sourceTree = "<group>"; };
 		55D635E4FB219F34941A974F /* Pods-MIAU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIAU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MIAU/Pods-MIAU.debug.xcconfig"; sourceTree = "<group>"; };
 		567149151FF018CB00811866 /* MIAU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MIAU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		567149181FF018CB00811866 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +53,11 @@
 		567149381FF032EB00811866 /* MarvelAPIConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPIConnector.swift; sourceTree = "<group>"; };
 		5671493C1FF03C4700811866 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		5671493E1FF03D5C00811866 /* MIAU-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MIAU-Bridging-Header.h"; sourceTree = "<group>"; };
+		56917C261FF1599C0036EEAD /* MIAUTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MIAUTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		56917C281FF1599C0036EEAD /* MIAUTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAUTests.swift; sourceTree = "<group>"; };
+		56917C2A1FF1599C0036EEAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56917C301FF15A040036EEAD /* MarvelAPITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPITest.swift; sourceTree = "<group>"; };
+		D5755E4F063796797AE97111 /* Pods_MIAUTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MIAUTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F38BF94C8A865B8DC9E5B9E1 /* Pods-MIAU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIAU.release.xcconfig"; path = "Pods/Target Support Files/Pods-MIAU/Pods-MIAU.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,6 +70,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		56917C231FF1599C0036EEAD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				744FC07E506FF11E19C5222E /* Pods_MIAUTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -57,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				567149171FF018CB00811866 /* MIAU */,
+				56917C271FF1599C0036EEAD /* MIAUTests */,
 				567149161FF018CB00811866 /* Products */,
 				A4B1A32B168AF4E240852E1C /* Pods */,
 				8AFEA05DB5AF9435F731AB2F /* Frameworks */,
@@ -67,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				567149151FF018CB00811866 /* MIAU.app */,
+				56917C261FF1599C0036EEAD /* MIAUTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,10 +161,21 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		56917C271FF1599C0036EEAD /* MIAUTests */ = {
+			isa = PBXGroup;
+			children = (
+				56917C281FF1599C0036EEAD /* MIAUTests.swift */,
+				56917C301FF15A040036EEAD /* MarvelAPITest.swift */,
+				56917C2A1FF1599C0036EEAD /* Info.plist */,
+			);
+			path = MIAUTests;
+			sourceTree = "<group>";
+		};
 		8AFEA05DB5AF9435F731AB2F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				25D7AD302CD3E936CDF48107 /* Pods_MIAU.framework */,
+				D5755E4F063796797AE97111 /* Pods_MIAUTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -144,6 +185,8 @@
 			children = (
 				55D635E4FB219F34941A974F /* Pods-MIAU.debug.xcconfig */,
 				F38BF94C8A865B8DC9E5B9E1 /* Pods-MIAU.release.xcconfig */,
+				43CDA2087B58E468AA454578 /* Pods-MIAUTests.debug.xcconfig */,
+				530C34222181057AAD1A41A8 /* Pods-MIAUTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -171,6 +214,27 @@
 			productReference = 567149151FF018CB00811866 /* MIAU.app */;
 			productType = "com.apple.product-type.application";
 		};
+		56917C251FF1599C0036EEAD /* MIAUTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56917C2F1FF1599C0036EEAD /* Build configuration list for PBXNativeTarget "MIAUTests" */;
+			buildPhases = (
+				F811DA263C7045CF408248D8 /* [CP] Check Pods Manifest.lock */,
+				56917C221FF1599C0036EEAD /* Sources */,
+				56917C231FF1599C0036EEAD /* Frameworks */,
+				56917C241FF1599C0036EEAD /* Resources */,
+				238ACD2F03CBE60D8EC32EFF /* [CP] Embed Pods Frameworks */,
+				CD78F76A982AB0EBC73AA219 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				56917C2C1FF1599C0036EEAD /* PBXTargetDependency */,
+			);
+			name = MIAUTests;
+			productName = MIAUTests;
+			productReference = 56917C261FF1599C0036EEAD /* MIAUTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -185,6 +249,11 @@
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Manual;
+					};
+					56917C251FF1599C0036EEAD = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Manual;
+						TestTargetID = 567149141FF018CB00811866;
 					};
 				};
 			};
@@ -202,6 +271,7 @@
 			projectRoot = "";
 			targets = (
 				567149141FF018CB00811866 /* MIAU */,
+				56917C251FF1599C0036EEAD /* MIAUTests */,
 			);
 		};
 /* End PBXProject section */
@@ -215,6 +285,13 @@
 				567149201FF018CB00811866 /* Assets.xcassets in Resources */,
 				5671492F1FF0247C00811866 /* APIConfiguration.plist in Resources */,
 				5671491E1FF018CB00811866 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56917C241FF1599C0036EEAD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +311,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MIAU/Pods-MIAU-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		238ACD2F03CBE60D8EC32EFF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MIAUTests/Pods-MIAUTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MIAUTests/Pods-MIAUTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		81D81ACB509617268A129F51 /* [CP] Check Pods Manifest.lock */ = {
@@ -278,6 +379,39 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MIAU/Pods-MIAU-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CD78F76A982AB0EBC73AA219 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MIAUTests/Pods-MIAUTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F811DA263C7045CF408248D8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MIAUTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -295,7 +429,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		56917C221FF1599C0036EEAD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56917C291FF1599C0036EEAD /* MIAUTests.swift in Sources */,
+				56917C311FF15A040036EEAD /* MarvelAPITest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		56917C2C1FF1599C0036EEAD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 567149141FF018CB00811866 /* MIAU */;
+			targetProxy = 56917C2B1FF1599C0036EEAD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5671491C1FF018CB00811866 /* Main.storyboard */ = {
@@ -465,6 +616,42 @@
 			};
 			name = Release;
 		};
+		56917C2D1FF1599C0036EEAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43CDA2087B58E468AA454578 /* Pods-MIAUTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 9GXAD5FLL2;
+				INFOPLIST_FILE = MIAUTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.crisisgriega.MIAUTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MIAU.app/MIAU";
+			};
+			name = Debug;
+		};
+		56917C2E1FF1599C0036EEAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 530C34222181057AAD1A41A8 /* Pods-MIAUTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 9GXAD5FLL2;
+				INFOPLIST_FILE = MIAUTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.crisisgriega.MIAUTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MIAU.app/MIAU";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -482,6 +669,15 @@
 			buildConfigurations = (
 				567149281FF018CB00811866 /* Debug */,
 				567149291FF018CB00811866 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56917C2F1FF1599C0036EEAD /* Build configuration list for PBXNativeTarget "MIAUTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56917C2D1FF1599C0036EEAD /* Debug */,
+				56917C2E1FF1599C0036EEAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

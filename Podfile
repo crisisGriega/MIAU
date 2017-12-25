@@ -10,3 +10,7 @@ end
 target 'MIAU' do
     common_pods
 end
+
+target 'MIAUTests' do
+    common_pods
+end

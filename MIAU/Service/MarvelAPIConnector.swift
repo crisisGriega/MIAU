@@ -13,8 +13,6 @@ class MarvelAPIConnector {
     
     static let `default`: MarvelAPIConnector = MarvelAPIConnector ();
     
-    private init() { }
-    
     lazy private var configuration: NSDictionary = {
         guard
             let envConfig = Bundle.main.infoDictionary?["Configuration"] as? String,
