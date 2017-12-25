@@ -11,9 +11,9 @@
 		<key>visibility</key>
 		<string>public</string>
 		<key>key</key>
-		<string>PLACE_YOUR_API_PUBLIC_KEY_HERE</string>
+		<string>35505517f981e0e108beac7afe1d9d31</string>
 		<key>private-key</key>
-		<string>PLACE_YOUR_API_PRIVATE_KEY_HERE</string>
+		<string>d24bb178e0fd510d06cd491fa1eec4a03b64c513</string>
 	</dict>
 	<key>Release</key>
 	<dict>
@@ -24,9 +24,9 @@
 		<key>visibility</key>
 		<string>public</string>
 		<key>key</key>
-		<string>PLACE_YOUR_API_PUBLIC_KEY_HERE</string>
+		<string>35505517f981e0e108beac7afe1d9d31</string>
 		<key>private-key</key>
-		<string>PLACE_YOUR_API_PRIVATE_KEY_HERE</string>
+		<string>d24bb178e0fd510d06cd491fa1eec4a03b64c513</string>
 	</dict>
 </dict>
 </plist>

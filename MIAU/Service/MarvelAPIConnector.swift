@@ -38,7 +38,7 @@ class MarvelAPIConnector {
         // Adding authorization parameters
         let timeStamp = String(describing: Date().timeIntervalSince1970);
         
-        let hash = "\(timeStamp)\(self.privateKey)\(self.publicKey)".toMD5();
+        let hash = "\(timeStamp)\(self.privateKey)\(self.publicKey)".MD5;
         
         baseURL.append("?apikey=\(self.publicKey)&hash=\(hash)&ts=\(timeStamp)");
         
