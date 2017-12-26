@@ -1,8 +1,8 @@
 //
-//  MarvelCharacter.swift
+//  MarvelEvent.swift
 //  MIAU
 //
-//  Created by Gerardo on 25/12/2017.
+//  Created by Gerardo on 26/12/2017.
 //  Copyright © 2017 crisisGriega. All rights reserved.
 //
 
@@ -10,24 +10,28 @@ import Foundation
 import ObjectMapper
 
 
-class MarvelCharacter: MarvelEntityRepresentable, Mappable {
+class MarvelEvent: MarvelEntityRepresentable, Mappable {
+    
     // MARK: MarvelEntityRepresentable
     var _id: String?;
     var _resourceURI: String?;
     var description: String?;
     var thumbnail: String?;
-    var type: MarvelEntityType = .characters;
+    var type: MarvelEntityType = .events;
     
     // MARK: Custom attributes
-    var name: String?;
+    var title: String?;
+    var characters: [MarvelCharacter]?;
     var comics: [MarvelComicListItem]?;
-    var creators: [MarvelCreator]?;
+    var creators: [MarvelCreatorListItem]?;
     var stories: [MarvelStoryListItem]?;
-    var events: [MarvelEventListItem]?;
     var series: [MarvelSerieListItem]?;
+    var start: Date?;
+    var end: Date?;
+    var previous: MarvelEventListItem?;
+    var next: MarvelEventListItem?;
     var detailURL: String?;
     var wikiURL: String?;
-    var comicLink: String?;
     
     
     // MARK: Mappable
@@ -45,16 +49,19 @@ class MarvelCharacter: MarvelEntityRepresentable, Mappable {
             }
             return nil;
         }));
-        self.name <- map["name"];
         self.description <- map["description"];
         self.thumbnail <- map["thumbnail.path"];
         self._resourceURI <- map["resourceURI"];
+        self.title <- map["title"];
+        self.characters <- map["characters.items"];
         self.comics <- map["comics.items"];
         self.creators <- map["creators.items"];
-        self.events <- map["events.items"];
         self.series <- map["series.items"];
         self.stories <- map["stories.items"];
-        
+        self.start <- (map["start"], DateTransform());
+        self.end <- (map["end"], DateTransform());
+        self.previous <- map["previous"];
+        self.next <- map["next"];
         self.detailURL <- (map["urls"], TransformOf<String, [StringDictionary]>(fromJSON: { (dict) -> String? in
             let filtered = dict?.filter({ (entry) -> Bool in
                 return entry["type"] == "detail";
@@ -84,22 +91,6 @@ class MarvelCharacter: MarvelEntityRepresentable, Mappable {
         }, toJSON: { (value) -> [StringDictionary]? in
             if let _value = value {
                 return [["type" : "wiki", "url" : _value]];
-            }
-            return nil;
-        }));
-        self.comicLink <- (map["urls"], TransformOf<String, [StringDictionary]>(fromJSON: { (dict) -> String? in
-            let filtered = dict?.filter({ (entry) -> Bool in
-                return entry["type"] == "comicLink";
-            })
-            
-            if let first = filtered?.first {
-                return first["url"];
-            }
-            
-            return nil;
-        }, toJSON: { (value) -> [StringDictionary]? in
-            if let _value = value {
-                return [["type" : "comicLink", "url" : _value]];
             }
             return nil;
         }));

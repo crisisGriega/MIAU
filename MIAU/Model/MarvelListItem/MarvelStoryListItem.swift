@@ -14,6 +14,7 @@ import ObjectMapper
 enum StoryType: String {
     case cover;
     case interiorStory;
+    case story;
 }
 
 

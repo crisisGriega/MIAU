@@ -8,11 +8,11 @@
 
 import Foundation
 
+typealias StringDictionary = [String : String];
 
 protocol MarvelEntityRepresentable: Marvelable {
     var description: String? { get set }
     var thumbnail: String? { get set }
-    var urls: [[String: String]]? { get set }
 }
 
 

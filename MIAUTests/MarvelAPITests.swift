@@ -14,7 +14,7 @@ import ObjectMapper
 import AlamofireObjectMapper
 
 
-class MarvelAPITest: XCTestCase {
+class MarvelAPITests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -45,24 +45,11 @@ class MarvelAPITest: XCTestCase {
     func testAPIURLForSeries() {
         self.commonTestingApiURLFor(.series);
     }
-    
-    func testParsingRequestToCharacters() {
-        let expectation = self.expectation(description: "expectation-parsing-request-to-characters");
-        
-        let url = MarvelAPIConnector.default.urlFor(.characters);
-        Alamofire.request(url).responseArray(keyPath: "data.results") { (response: DataResponse<[MarvelCharacter]>) in
-            dump(response.result.value?.first);
-            XCTAssert(response.result.value?.first?.id != nil);
-            expectation.fulfill();
-        }
-        
-        waitForExpectations(timeout: 120.0) { (error) in }
-    }
 }
 
 
 // MARK: Private
-private extension MarvelAPITest {
+private extension MarvelAPITests {
     func commonTestingApiURLFor(_ type: MarvelEntityType) {
         let expectation = self.expectation(description: "expectation-marvel-api-\(type)");
         
