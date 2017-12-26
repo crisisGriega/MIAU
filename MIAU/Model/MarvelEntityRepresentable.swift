@@ -9,41 +9,10 @@
 import Foundation
 
 
-protocol MarvelEntityRepresentable {
-    var _id: String? { get set }
-    var _resourceURI: String? { get set }
+protocol MarvelEntityRepresentable: Marvelable {
     var description: String? { get set }
     var thumbnail: String? { get set }
-    var type: MarvelEntityType { get }
-}
-
-
-// ID and resourceURI can be translated into each other
-extension MarvelEntityRepresentable {
-    var id: String? {
-        if let value = _id {
-            return value;
-        }
-        else if let value = _resourceURI {
-            let components = value.components(separatedBy: "/");
-            if let index = components.index(of: self.type.rawValue), index < components.count - 1 {
-                return components[index+1];
-            }
-        }
-        return nil;
-    }
-    
-    var resourceURI: String? {
-        get {
-            if let value = _resourceURI {
-                return value;
-            }
-            else if let value = _id {
-                return MarvelAPIConnector.default.urlFor(self.type, id: value);
-            }
-            return nil;
-        }
-    }
+    var urls: [[String: String]]? { get set }
 }
 
 

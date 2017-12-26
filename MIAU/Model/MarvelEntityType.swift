@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 enum MarvelEntityType: String {
     case characters;
     case comics;

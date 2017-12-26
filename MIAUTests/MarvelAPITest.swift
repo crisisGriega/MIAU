@@ -27,9 +27,46 @@ class MarvelAPITest: XCTestCase {
     }
     
     func testAPIURLForCharacters() {
-        let expectation = self.expectation(description: "expectation-data-provider-characters");
+        self.commonTestingApiURLFor(.characters);
+    }
+    
+    func testAPIURLForComics() {
+        self.commonTestingApiURLFor(.comics);
+    }
+    
+    func testAPIURLForStories() {
+        self.commonTestingApiURLFor(.stories);
+    }
+    
+    func testAPIURLForEvents() {
+        self.commonTestingApiURLFor(.events);
+    }
+    
+    func testAPIURLForSeries() {
+        self.commonTestingApiURLFor(.series);
+    }
+    
+    func testParsingRequestToCharacters() {
+        let expectation = self.expectation(description: "expectation-parsing-request-to-characters");
         
         let url = MarvelAPIConnector.default.urlFor(.characters);
+        Alamofire.request(url).responseArray(keyPath: "data.results") { (response: DataResponse<[MarvelCharacter]>) in
+            dump(response.result.value?.first);
+            XCTAssert(response.result.value?.first?.id != nil);
+            expectation.fulfill();
+        }
+        
+        waitForExpectations(timeout: 120.0) { (error) in }
+    }
+}
+
+
+// MARK: Private
+private extension MarvelAPITest {
+    func commonTestingApiURLFor(_ type: MarvelEntityType) {
+        let expectation = self.expectation(description: "expectation-marvel-api-\(type)");
+        
+        let url = MarvelAPIConnector.default.urlFor(type);
         Alamofire.request(url).responseJSON { response in
             print("Response: \(response.result)");
             XCTAssert(response.result.error == nil);
@@ -38,5 +75,4 @@ class MarvelAPITest: XCTestCase {
         
         waitForExpectations(timeout: 120.0) { (error) in }
     }
-    
 }

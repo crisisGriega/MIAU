@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 enum MarvelImageSize: String {
     case portrait = "portrait_uncanny.jpg";
     case square =  "standard_fantastic.jpg";
