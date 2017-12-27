@@ -14,6 +14,7 @@ class EntityTableViewCell: UITableViewCell {
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbSubtitle: UILabel!
+    @IBOutlet weak var imgSpinner: UIActivityIndicatorView!
     
     private let viewModel: EntityCellViewModel = EntityCellViewModel();
     
@@ -49,6 +50,13 @@ private extension EntityTableViewCell {
         self.lbTitle.sizeToFit();
         self.lbSubtitle.text = self.viewModel.subTitle;
         self.lbTitle.sizeToFit();
+        self.imgView.af_cancelImageRequest();
         self.imgView.image = self.viewModel.imagePlaceholder;
+        if let url = self.viewModel.imageURL {
+            self.imgSpinner.startAnimating();
+            self.imgView.af_setImage(withURL: url, placeholderImage: self.viewModel.imagePlaceholder, imageTransition: .crossDissolve(0.2), runImageTransitionIfCached: false, completion: { (image) in
+                self.imgSpinner.stopAnimating();
+            })
+        }
     }
 }
