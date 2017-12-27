@@ -6,7 +6,7 @@
 //  Copyright © 2017 crisisGriega. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
 class EntityCellViewModel {
@@ -19,10 +19,10 @@ class EntityCellViewModel {
         }
         
         switch entity.type {
-        case .characters:
-            return (entity as? MarvelCharacter)?.name ?? "";
-        default:
-            return "";
+            case .characters:
+                return (entity as? MarvelCharacter)?.name ?? "";
+            default:
+                return "";
         }
         
     }
@@ -33,12 +33,39 @@ class EntityCellViewModel {
         }
         
         switch entity.type {
-        case .characters:
-            let defaultValue = "No info avaliable";
-            guard let des = entity.description else { return defaultValue; }
-            return des.isEmpty ? defaultValue : des;
-        default:
-            return "";
+            case .characters:
+                let defaultValue = "No info avaliable";
+                guard let des = entity.description else { return defaultValue; }
+                return des.isEmpty ? defaultValue : des;
+            default:
+                return "";
+        }
+    }
+    
+    var imagePlaceholder: UIImage? {
+        guard let entity = self.entity else {
+            return nil;
+        }
+        
+        switch entity.type {
+            case .characters:
+                return #imageLiteral(resourceName: "placeholder-characters");
+            default:
+                return nil;
+        }
+            
+    }
+    
+    var imageURL: URL? {
+        guard let entity = self.entity else {
+            return nil;
+        }
+        
+        switch entity.type {
+            case .characters:
+                return entity.imageSquareURL;
+            default:
+                return nil;
         }
     }
 }

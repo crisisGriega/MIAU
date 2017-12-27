@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class EntityTableViewCell: UITableViewCell {
 
@@ -48,5 +49,6 @@ private extension EntityTableViewCell {
         self.lbTitle.sizeToFit();
         self.lbSubtitle.text = self.viewModel.subTitle;
         self.lbTitle.sizeToFit();
+        self.imgView.image = self.viewModel.imagePlaceholder;
     }
 }
