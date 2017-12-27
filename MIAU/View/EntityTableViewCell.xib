@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="TcH-rD-k2I" customClass="EntityTableViewCell" customModule="MIAU" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="605" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TcH-rD-k2I" id="FF8-LV-0V8">
+                <rect key="frame" x="0.0" y="0.0" width="605" height="79.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S14-SN-vA1">
+                        <rect key="frame" x="80" y="10" width="515" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ft-oc-geo">
+                        <rect key="frame" x="80" y="33" width="515" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-characters" translatesAutoresizingMaskIntoConstraints="NO" id="no7-RI-1t4">
+                        <rect key="frame" x="10" y="10" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="CaO-Mu-lI2"/>
+                            <constraint firstAttribute="width" constant="60" id="sw2-V4-RDm"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="8ft-oc-geo" firstAttribute="leading" secondItem="no7-RI-1t4" secondAttribute="trailing" constant="10" id="Bf9-pg-isr"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8ft-oc-geo" secondAttribute="bottom" priority="750" constant="10" id="DIH-YQ-b4S"/>
+                    <constraint firstAttribute="trailing" secondItem="8ft-oc-geo" secondAttribute="trailing" constant="10" id="QQY-SJ-VxA"/>
+                    <constraint firstItem="no7-RI-1t4" firstAttribute="top" secondItem="FF8-LV-0V8" secondAttribute="top" constant="10" id="aPs-gv-9ov"/>
+                    <constraint firstItem="no7-RI-1t4" firstAttribute="leading" secondItem="FF8-LV-0V8" secondAttribute="leading" constant="10" id="d03-wr-Bg6"/>
+                    <constraint firstItem="S14-SN-vA1" firstAttribute="top" secondItem="FF8-LV-0V8" secondAttribute="top" constant="10" id="hC5-Tv-CYs"/>
+                    <constraint firstAttribute="trailing" secondItem="S14-SN-vA1" secondAttribute="trailing" constant="10" id="o1i-4W-3VR"/>
+                    <constraint firstItem="8ft-oc-geo" firstAttribute="top" secondItem="S14-SN-vA1" secondAttribute="bottom" constant="5" id="pl5-kd-D2a"/>
+                    <constraint firstItem="S14-SN-vA1" firstAttribute="leading" secondItem="no7-RI-1t4" secondAttribute="trailing" constant="10" id="pr3-OM-k37"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imgView" destination="no7-RI-1t4" id="a6u-pF-y5r"/>
+                <outlet property="lbSubtitle" destination="8ft-oc-geo" id="gx6-LU-asJ"/>
+                <outlet property="lbTitle" destination="S14-SN-vA1" id="JQX-Vv-1h4"/>
+            </connections>
+            <point key="canvasLocation" x="-17.5" y="-233"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="placeholder-characters" width="250" height="250"/>
+    </resources>
+</document>
