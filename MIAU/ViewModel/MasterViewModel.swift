@@ -12,10 +12,31 @@ import UIKit
 class MasterViewModel {
     
     private var entityList: [MarvelEntityRepresentable] = [];
+    private let entityTypes: [MarvelEntityType] = [.characters, .comics, .creators, .events, .series, .stories];
     private let itemsPerPage: Int = 100;
     private var page: Int = 1;
     private var isRetrieving: Bool = false;
     
+    // Types
+    var numberOfTypes: Int {
+        return self.entityTypes.count;
+    }
+    
+    func nameForTypeAtIndex(_ index: Int) -> String {
+        guard index >= 0, index < self.entityTypes.count else {
+            return "";
+        }
+        
+        return self.entityTypes[index].rawValue;
+    }
+    
+    var selectedTypeIndex: Int = 0 {
+        didSet {
+            // TODO: Need to retrieve new data
+        }
+    }
+    
+    // List
     var numberOfItems: Int {
         return self.entityList.count
     }

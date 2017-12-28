@@ -135,6 +135,7 @@ private extension MainTheme {
     private func regularMarvelFont(with size: CGFloat) -> UIFont? {
         return UIFont(name: "Marvel-Regular", size: size);
     }
+    
     private func boldMarvelFont(with size: CGFloat) -> UIFont? {
         return UIFont(name: "Marvel-Bold", size: size);
     }

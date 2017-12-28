@@ -9,6 +9,7 @@ end
 
 target 'MIAU' do
     common_pods
+    pod 'AKPickerView-Swift', :git => 'https://github.com/crisisGriega/AKPickerView-Swift.git'
 end
 
 target 'MIAUTests' do

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AKPickerView_Swift
+
 
 class MasterViewController: UIViewController {
 
@@ -17,6 +19,26 @@ class MasterViewController: UIViewController {
     private let cellViewModel: EntityCellViewModel = EntityCellViewModel();
     
     private let searchController: UISearchController = UISearchController(searchResultsController: nil);
+    
+    
+    private lazy var picker: AKPickerView = {
+        let frame: CGRect = CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 44);
+        let picker: AKPickerView = AKPickerView(frame: frame);
+        picker.delegate = self;
+        picker.dataSource = self;
+        
+        picker.interitemSpacing = 10.0;
+        
+        if let theme = Theme.currentTheme {
+            picker.backgroundColor = theme.color(for: "secondary") ?? .black;
+            picker.textColor = theme.color(for: "tertiary") ?? .white;
+            picker.highlightedTextColor = theme.color(for: "sexary") ?? .red;
+        }
+        
+        picker.reloadData();
+        
+        return picker;
+    }();
     
     // MARK: Lifecycle
     
@@ -72,16 +94,6 @@ extension MasterViewController: UITableViewDataSource {
         
         return cell;
     }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let frame: CGRect = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 44);
-        let view = UIView(frame: frame);
-        if let theme = Theme.currentTheme {
-            view.backgroundColor = theme.color(for: "secondary");
-        }
-        
-        return view;
-    }
 }
 
 
@@ -127,12 +139,37 @@ extension MasterViewController: UITableViewDelegate {
             self.tableView.insertRows(at: indexPaths, with: .automatic);
         });
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard section == 0 else { return nil; }
+        return self.picker;
+    }
 }
 
 
 // MARK: UISearchResultsUpdating
 extension MasterViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        
+        // TODO: Retrieve new data
+    }
+}
+
+
+// MARK: AKPickerView Delegate
+extension MasterViewController: AKPickerViewDelegate {
+    func pickerView(_ pickerView: AKPickerView, didSelectItem item: Int) {
+        self.viewModel.selectedTypeIndex = item;
+    }
+}
+
+
+// MARK: AKPickerView DataSource
+extension MasterViewController: AKPickerViewDataSource {
+    func numberOfItemsInPickerView(_ pickerView: AKPickerView) -> Int {
+        return self.viewModel.numberOfTypes;
+    }
+    
+    func pickerView(_ pickerView: AKPickerView, titleForItem item: Int) -> String {
+        return self.viewModel.nameForTypeAtIndex(item);
     }
 }
