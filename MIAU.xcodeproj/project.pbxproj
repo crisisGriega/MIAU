@@ -30,6 +30,15 @@
 		56917C431FF1BDD80036EEAD /* MarvelEventListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56917C421FF1BDD80036EEAD /* MarvelEventListItem.swift */; };
 		56917C451FF1BDF90036EEAD /* MarvelSerieListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56917C441FF1BDF90036EEAD /* MarvelSerieListItem.swift */; };
 		56917C481FF1CA700036EEAD /* MarvelItemListable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56917C471FF1CA700036EEAD /* MarvelItemListable.swift */; };
+		569832EC1FF4EBFD00C4FA5F /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569832EB1FF4EBFD00C4FA5F /* UIColor+Hex.swift */; };
+		569832EE1FF4ECA500C4FA5F /* EnumColorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569832ED1FF4ECA500C4FA5F /* EnumColorable.swift */; };
+		569832F81FF4ECF300C4FA5F /* Themeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569832F01FF4ECF200C4FA5F /* Themeable.swift */; };
+		569832FB1FF4ECF300C4FA5F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569832F31FF4ECF200C4FA5F /* Theme.swift */; };
+		569832FD1FF4ECF300C4FA5F /* ThemeStyleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569832F51FF4ECF200C4FA5F /* ThemeStyleable.swift */; };
+		569832FE1FF4ECF300C4FA5F /* UILabel+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569832F61FF4ECF200C4FA5F /* UILabel+Theme.swift */; };
+		569832FF1FF4ECF300C4FA5F /* MainTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569832F71FF4ECF300C4FA5F /* MainTheme.swift */; };
+		569833041FF50AFA00C4FA5F /* Marvel-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 569833021FF5053800C4FA5F /* Marvel-Bold.ttf */; };
+		569833051FF50AFA00C4FA5F /* Marvel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 569833031FF5053800C4FA5F /* Marvel-Regular.ttf */; };
 		56F301EE1FF2ACB900584929 /* MarvelCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F301ED1FF2ACB900584929 /* MarvelCreator.swift */; };
 		56F301F01FF2F3D200584929 /* MarvelEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F301EF1FF2F3D200584929 /* MarvelEvent.swift */; };
 		56F301F21FF2FC9600584929 /* MarvelSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F301F11FF2FC9600584929 /* MarvelSerie.swift */; };
@@ -90,6 +99,15 @@
 		56917C421FF1BDD80036EEAD /* MarvelEventListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelEventListItem.swift; sourceTree = "<group>"; };
 		56917C441FF1BDF90036EEAD /* MarvelSerieListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelSerieListItem.swift; sourceTree = "<group>"; };
 		56917C471FF1CA700036EEAD /* MarvelItemListable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelItemListable.swift; sourceTree = "<group>"; };
+		569832EB1FF4EBFD00C4FA5F /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		569832ED1FF4ECA500C4FA5F /* EnumColorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumColorable.swift; sourceTree = "<group>"; };
+		569832F01FF4ECF200C4FA5F /* Themeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Themeable.swift; sourceTree = "<group>"; };
+		569832F31FF4ECF200C4FA5F /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		569832F51FF4ECF200C4FA5F /* ThemeStyleable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeStyleable.swift; sourceTree = "<group>"; };
+		569832F61FF4ECF200C4FA5F /* UILabel+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Theme.swift"; sourceTree = "<group>"; };
+		569832F71FF4ECF300C4FA5F /* MainTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTheme.swift; sourceTree = "<group>"; };
+		569833021FF5053800C4FA5F /* Marvel-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marvel-Bold.ttf"; sourceTree = "<group>"; };
+		569833031FF5053800C4FA5F /* Marvel-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marvel-Regular.ttf"; sourceTree = "<group>"; };
 		56F301ED1FF2ACB900584929 /* MarvelCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCreator.swift; sourceTree = "<group>"; };
 		56F301EF1FF2F3D200584929 /* MarvelEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelEvent.swift; sourceTree = "<group>"; };
 		56F301F11FF2FC9600584929 /* MarvelSerie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelSerie.swift; sourceTree = "<group>"; };
@@ -150,6 +168,7 @@
 		567149171FF018CB00811866 /* MIAU */ = {
 			isa = PBXGroup;
 			children = (
+				569833001FF5052500C4FA5F /* Resources */,
 				5671492D1FF0244500811866 /* Config */,
 				56F301F51FF3F02F00584929 /* Controller */,
 				567149301FF0271800811866 /* Model */,
@@ -205,6 +224,7 @@
 		5671493A1FF03C3000811866 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				569832EF1FF4ECDF00C4FA5F /* Theme */,
 				5671493B1FF03C3900811866 /* Extension */,
 			);
 			path = Utils;
@@ -216,6 +236,8 @@
 				5671493C1FF03C4700811866 /* String+MD5.swift */,
 				56F301F81FF3F14600584929 /* UITableViewCell+reuseIdentifier.swift */,
 				56F3020C1FF43BCD00584929 /* String+Height.swift */,
+				569832EB1FF4EBFD00C4FA5F /* UIColor+Hex.swift */,
+				569832ED1FF4ECA500C4FA5F /* EnumColorable.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -243,6 +265,35 @@
 				56917C381FF1B42F0036EEAD /* MarvelStoryListItem.swift */,
 			);
 			path = MarvelListItem;
+			sourceTree = "<group>";
+		};
+		569832EF1FF4ECDF00C4FA5F /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				569832F71FF4ECF300C4FA5F /* MainTheme.swift */,
+				569832F31FF4ECF200C4FA5F /* Theme.swift */,
+				569832F01FF4ECF200C4FA5F /* Themeable.swift */,
+				569832F51FF4ECF200C4FA5F /* ThemeStyleable.swift */,
+				569832F61FF4ECF200C4FA5F /* UILabel+Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		569833001FF5052500C4FA5F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				569833011FF5052C00C4FA5F /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		569833011FF5052C00C4FA5F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				569833021FF5053800C4FA5F /* Marvel-Bold.ttf */,
+				569833031FF5053800C4FA5F /* Marvel-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		56F301F51FF3F02F00584929 /* Controller */ = {
@@ -384,6 +435,8 @@
 			files = (
 				567149231FF018CB00811866 /* LaunchScreen.storyboard in Resources */,
 				567149201FF018CB00811866 /* Assets.xcassets in Resources */,
+				569833041FF50AFA00C4FA5F /* Marvel-Bold.ttf in Resources */,
+				569833051FF50AFA00C4FA5F /* Marvel-Regular.ttf in Resources */,
 				56F3020B1FF4335F00584929 /* EntityTableViewCell.xib in Resources */,
 				5671492F1FF0247C00811866 /* APIConfiguration.plist in Resources */,
 				5671491E1FF018CB00811866 /* Main.storyboard in Resources */,
@@ -529,8 +582,11 @@
 				567149191FF018CB00811866 /* AppDelegate.swift in Sources */,
 				56917C331FF1A3C10036EEAD /* MarvelCharacter.swift in Sources */,
 				56F302091FF40C8900584929 /* EntityCellViewModel.swift in Sources */,
+				569832F81FF4ECF300C4FA5F /* Themeable.swift in Sources */,
 				56917C481FF1CA700036EEAD /* MarvelItemListable.swift in Sources */,
 				56F3020D1FF43BCD00584929 /* String+Height.swift in Sources */,
+				569832FD1FF4ECF300C4FA5F /* ThemeStyleable.swift in Sources */,
+				569832EE1FF4ECA500C4FA5F /* EnumColorable.swift in Sources */,
 				56F302071FF40B7500584929 /* EntityTableViewCell.swift in Sources */,
 				56F301F21FF2FC9600584929 /* MarvelSerie.swift in Sources */,
 				56F301FC1FF3F4C600584929 /* DataProvider.swift in Sources */,
@@ -540,15 +596,19 @@
 				56F301EE1FF2ACB900584929 /* MarvelCreator.swift in Sources */,
 				56917C431FF1BDD80036EEAD /* MarvelEventListItem.swift in Sources */,
 				567149391FF032EB00811866 /* MarvelAPIConnector.swift in Sources */,
+				569832FF1FF4ECF300C4FA5F /* MainTheme.swift in Sources */,
+				569832FE1FF4ECF300C4FA5F /* UILabel+Theme.swift in Sources */,
 				56F301FE1FF3F9F200584929 /* MasterViewModel.swift in Sources */,
 				56917C3D1FF1BD060036EEAD /* MarvelCharacterListItem.swift in Sources */,
 				56917C3F1FF1BD7D0036EEAD /* MarvelComicListItem.swift in Sources */,
 				567149361FF02E3B00811866 /* MarvelImageSize.swift in Sources */,
 				56F301F01FF2F3D200584929 /* MarvelEvent.swift in Sources */,
 				567149341FF02B9300811866 /* MarvelEntityType.swift in Sources */,
+				569832EC1FF4EBFD00C4FA5F /* UIColor+Hex.swift in Sources */,
 				56917C451FF1BDF90036EEAD /* MarvelSerieListItem.swift in Sources */,
 				56F302051FF4024500584929 /* CustomSplitViewController.swift in Sources */,
 				56917C351FF1B19C0036EEAD /* Marvelable.swift in Sources */,
+				569832FB1FF4ECF300C4FA5F /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

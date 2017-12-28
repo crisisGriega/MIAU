@@ -57,11 +57,19 @@ extension MasterViewController: UITableViewDataSource {
 // MARK: UITableView Delegate
 extension MasterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        // TODO: Constant values should be stored somewhere not hardcoded here
+        guard
+            let theme = Theme.currentTheme,
+            let titleFont = theme.textFont(for: TextStyle.cellTitle.rawValue),
+            let subtitleFont = theme.textFont(for: TextStyle.cellSubtitle.rawValue)  else
+        {
+            return self.tableView(tableView, estimatedHeightForRowAt: indexPath);
+        }
+        
         self.cellViewModel.entity = self.viewModel.itemFor(indexPath);
+        // TODO: Constant values should be stored somewhere not hardcoded here
         let width: CGFloat = tableView.frame.width - 90.0;
-        let titleHeight: CGFloat = ceil(self.cellViewModel.title.heightFor(width: width, font: UIFont.systemFont(ofSize: 15.0)));
-        let subtitleHeight: CGFloat = ceil(self.cellViewModel.subTitle.heightFor(width: width, font: UIFont.systemFont(ofSize: 12.0)));
+        let titleHeight: CGFloat = ceil(self.cellViewModel.title.heightFor(width: width, font: titleFont));
+        let subtitleHeight: CGFloat = ceil(self.cellViewModel.subTitle.heightFor(width: width, font: subtitleFont));
         
         let textHeight = titleHeight + subtitleHeight + 32;
         let estimatedHeight = self.tableView(self.tableView, estimatedHeightForRowAt: indexPath);
