@@ -32,7 +32,11 @@ class EntityTableViewCell: UITableViewCell {
     // MARK: Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.separatorInset = .zero;
+        
+        if let theme = Theme.currentTheme {
+            self.contentView.backgroundColor = theme.color(for: "tertiary");
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

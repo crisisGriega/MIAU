@@ -26,6 +26,7 @@ enum ColorPalette: Int, EnumColorable {
     case gray = 0x504a4a;
     case blue = 0x518cca;
     case orange = 0xf78f3f;
+    case white = 0xffffff;
 }
 
 enum ColorStyle: String {
@@ -34,6 +35,7 @@ enum ColorStyle: String {
     case tertiary;
     case quaternary;
     case quinary;
+    case sexary;
 }
 
 class MainTheme: Themeable {
@@ -51,9 +53,9 @@ class MainTheme: Themeable {
         
         switch styleCase {
             case .cellTitle:
-                label.textColor = ColorPalette.black.colorValue();
+                label.textColor = ColorPalette.white.colorValue();
             case .cellSubtitle:
-                label.textColor = ColorPalette.gray.colorValue();
+                label.textColor = ColorPalette.white.colorValue();
         }
         
         if let font = self.textFont(for: style)  {
@@ -98,12 +100,12 @@ class MainTheme: Themeable {
             case .cellTitle:
                 paragraphStyle.lineSpacing = 0;
                 uppercase = true;
-                textColor = ColorPalette.black.colorValue();
+                textColor = ColorPalette.white.colorValue();
             
             case .cellSubtitle:
                 paragraphStyle.lineSpacing = 0;
                 uppercase = false;
-                textColor = ColorPalette.gray.colorValue();
+                textColor = ColorPalette.white.colorValue();
         }
         
         let stringText = uppercase ? text.uppercased() : text;
@@ -159,6 +161,8 @@ private extension MainTheme {
                 return .blue;
             case .quinary:
                 return .orange;
+            case .sexary:
+                return .white;
         }
     }
 }

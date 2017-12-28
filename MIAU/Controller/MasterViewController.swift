@@ -16,17 +16,35 @@ class MasterViewController: UIViewController {
     // Used for cell height calculations
     private let cellViewModel: EntityCellViewModel = EntityCellViewModel();
     
+    private let searchController: UISearchController = UISearchController(searchResultsController: nil);
     
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Set up searchController
+        self.searchController.searchResultsUpdater = self;
+        self.searchController.obscuresBackgroundDuringPresentation = false;
+        self.searchController.searchBar.placeholder = "";
+        self.searchController.searchBar.scopeButtonTitles = ["Characters", "Comics", "Creators", "Events", "Series", "Stories"];
+        self.navigationItem.searchController = self.searchController;
+        self.definesPresentationContext = true;
+        if let theme = Theme.currentTheme {
+            let color = theme.color(for: "sexary");
+            self.searchController.searchBar.tintColor = color;
+        }
+        
+        // Set up tableView
         let reuseId = EntityTableViewCell.reuseIdentifier;
         let nib = UINib.init(nibName: reuseId, bundle: nil);
         self.tableView.register(nib, forCellReuseIdentifier: reuseId);
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
+        if let theme = Theme.currentTheme {
+            self.view.backgroundColor = theme.color(for: "secondary");
+            self.tableView.backgroundColor = theme.color(for: "secondary");
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,6 +71,16 @@ extension MasterViewController: UITableViewDataSource {
         cell.entity = self.viewModel.itemFor(indexPath);
         
         return cell;
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let frame: CGRect = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 44);
+        let view = UIView(frame: frame);
+        if let theme = Theme.currentTheme {
+            view.backgroundColor = theme.color(for: "secondary");
+        }
+        
+        return view;
     }
 }
 
@@ -98,5 +126,13 @@ extension MasterViewController: UITableViewDelegate {
             }
             self.tableView.insertRows(at: indexPaths, with: .automatic);
         });
+    }
+}
+
+
+// MARK: UISearchResultsUpdating
+extension MasterViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
     }
 }

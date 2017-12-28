@@ -49,15 +49,24 @@
                     </view>
                     <navigationItem key="navigationItem" id="ujH-Rf-AM3">
                         <nil key="title"/>
-                        <view key="titleView" contentMode="scaleToFill" id="XEU-ep-OUL">
+                        <view key="titleView" contentMode="scaleAspectFit" id="XEU-ep-OUL">
                             <rect key="frame" x="125.5" y="0.0" width="124" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="marvel-logo" translatesAutoresizingMaskIntoConstraints="NO" id="poT-db-oAs">
-                                    <rect key="frame" x="0.0" y="-6" width="124" height="45"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marvel-logo" translatesAutoresizingMaskIntoConstraints="NO" id="poT-db-oAs">
+                                    <rect key="frame" x="0.0" y="5" width="124" height="34"/>
                                 </imageView>
                             </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="poT-db-oAs" secondAttribute="trailing" id="5QH-yU-kdR"/>
+                                <constraint firstItem="poT-db-oAs" firstAttribute="top" secondItem="XEU-ep-OUL" secondAttribute="top" constant="5" id="9Ov-Ft-X5B">
+                                    <variation key="heightClass=compact-widthClass=regular" constant="2"/>
+                                </constraint>
+                                <constraint firstAttribute="bottom" secondItem="poT-db-oAs" secondAttribute="bottom" constant="5" id="WZG-qL-4Gk">
+                                    <variation key="heightClass=compact-widthClass=regular" constant="2"/>
+                                </constraint>
+                                <constraint firstItem="poT-db-oAs" firstAttribute="leading" secondItem="XEU-ep-OUL" secondAttribute="leading" id="dDg-Zj-pAH"/>
+                            </constraints>
                         </view>
                     </navigationItem>
                     <connections>
