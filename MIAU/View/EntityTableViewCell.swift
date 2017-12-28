@@ -36,6 +36,9 @@ class EntityTableViewCell: UITableViewCell {
         
         if let theme = Theme.currentTheme {
             self.contentView.backgroundColor = theme.color(for: "tertiary");
+            let backgroundView = UIView();
+            backgroundView.backgroundColor = theme.color(for: "secondary");
+            self.selectedBackgroundView = backgroundView;
         }
     }
 

@@ -58,7 +58,12 @@ class MasterViewModel {
     }
     
     func retrieveData(_ completion: (([MarvelEntityRepresentable]?) -> Void)?) {
-        if self.isRetrieving { return; }
+        if self.isRetrieving {
+            if let _completion = completion {
+                _completion(nil);
+            }
+            return;
+        }
         self.isRetrieving = true;
         DataProvider.getCharacterList(limit: self.itemsPerPage, offset: self.itemsPerPage * (self.page-1)) { (result) in
             self.isRetrieving = false;

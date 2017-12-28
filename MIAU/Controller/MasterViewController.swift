@@ -8,11 +8,13 @@
 
 import UIKit
 import AKPickerView_Swift
+import DSGradientProgressView
 
 
 class MasterViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var progressView: DSGradientProgressView!
     
     private let viewModel: MasterViewModel = MasterViewModel();
     // Used for cell height calculations
@@ -49,12 +51,13 @@ class MasterViewController: UIViewController {
         self.searchController.searchResultsUpdater = self;
         self.searchController.obscuresBackgroundDuringPresentation = false;
         self.searchController.searchBar.placeholder = "";
-        self.searchController.searchBar.scopeButtonTitles = ["Characters", "Comics", "Creators", "Events", "Series", "Stories"];
+        
         self.navigationItem.searchController = self.searchController;
         self.definesPresentationContext = true;
         if let theme = Theme.currentTheme {
             let color = theme.color(for: "sexary");
             self.searchController.searchBar.tintColor = color;
+            self.progressView.barColor = theme.color(for: "quinary") ?? .red;
         }
         
         // Set up tableView
@@ -75,8 +78,10 @@ class MasterViewController: UIViewController {
             self.navigationController?.navigationBar.barTintColor = theme.color(for: "primary");
         }
         
+        self.progressView.wait();
         self.viewModel.retrieveData { (items) in
             self.tableView.reloadData();
+            self.progressView.signal();
         }
     }
 }
@@ -131,7 +136,11 @@ extension MasterViewController: UITableViewDelegate {
         { return; }
         
         let oldItemCount = self.viewModel.numberOfItems;
+        self.progressView.wait();
         self.viewModel.retrieveData({ (items) in
+            defer { self.progressView.signal(); }
+            guard items != nil else { return; }
+            
             var indexPaths: [IndexPath] = [];
             for item in oldItemCount..<self.viewModel.numberOfItems {
                 indexPaths.append(IndexPath(row: item, section: 0));
