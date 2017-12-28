@@ -70,7 +70,7 @@ class MainTheme: Themeable {
             case .cellTitle:
                 return self.boldMarvelFont(with: 22);
             case .cellSubtitle:
-                return self.regularMarvelFont(with: 17);
+                return UIFont.systemFont(ofSize: 12);
         }
     }
     

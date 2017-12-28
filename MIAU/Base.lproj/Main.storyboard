@@ -47,7 +47,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S5a-y3-PBO"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ujH-Rf-AM3"/>
+                    <navigationItem key="navigationItem" id="ujH-Rf-AM3">
+                        <nil key="title"/>
+                        <view key="titleView" contentMode="scaleToFill" id="XEU-ep-OUL">
+                            <rect key="frame" x="125.5" y="0.0" width="124" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="marvel-logo" translatesAutoresizingMaskIntoConstraints="NO" id="poT-db-oAs">
+                                    <rect key="frame" x="0.0" y="-6" width="124" height="45"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                            </subviews>
+                        </view>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="djG-Q9-gUd" id="eav-dg-eRH"/>
                     </connections>
@@ -86,4 +98,7 @@
             <point key="canvasLocation" x="-748" y="1141"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="marvel-logo" width="248" height="90"/>
+    </resources>
 </document>

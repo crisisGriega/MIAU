@@ -31,6 +31,9 @@ class MasterViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
+        if let theme = Theme.currentTheme {
+            self.navigationController?.navigationBar.barTintColor = theme.color(for: "primary");
+        }
         
         self.viewModel.retrieveData { (items) in
             self.tableView.reloadData();
