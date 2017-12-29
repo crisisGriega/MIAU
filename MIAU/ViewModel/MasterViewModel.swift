@@ -11,11 +11,13 @@ import UIKit
 
 class MasterViewModel {
     
-    private var entityList: [MarvelEntityRepresentable] = [];
     private let entityTypes: [MarvelEntityType] = [.characters, .comics, .creators, .events, .series, .stories];
-    private let itemsPerPage: Int = 100;
-    private var page: Int = 1;
-    private var isRetrieving: Bool = false;
+    private let characterListViewModel: CharactersListViewModel = CharactersListViewModel();
+    private var currentViewModel: MarvelEntityListViewModeling!
+    
+    init(with selectedType: MarvelEntityType = .characters) {
+        self.currentViewModel = self.entityListViewModel(for: selectedType);
+    }
     
     // Types
     var numberOfTypes: Int {
@@ -38,11 +40,11 @@ class MasterViewModel {
     
     // List
     var numberOfItems: Int {
-        return self.entityList.count
+        return self.currentViewModel.numberOfItems
     }
     
     var marginForRetrieving: CGFloat {
-        return (self.cellHeight) * CGFloat(self.itemsPerPage / 2);
+        return (self.cellHeight) * CGFloat(self.currentViewModel.itemsPerPage / 2);
     }
     
     var cellHeight: CGFloat {
@@ -50,33 +52,23 @@ class MasterViewModel {
     }
     
     func itemFor(_ indexPath: IndexPath) -> MarvelEntityRepresentable? {
-        guard indexPath.row >= 0, indexPath.row < entityList.count else {
-            return nil;
-        }
-        
-        return self.entityList[indexPath.row];
+        return self.currentViewModel.itemFor(indexPath);
     }
     
     func retrieveData(_ completion: (([MarvelEntityRepresentable]?) -> Void)?) {
-        if self.isRetrieving {
-            if let _completion = completion {
-                _completion(nil);
-            }
-            return;
-        }
-        self.isRetrieving = true;
-        DataProvider.getCharacterList(limit: self.itemsPerPage, offset: self.itemsPerPage * (self.page-1)) { (result) in
-            self.isRetrieving = false;
-            defer {
-                if let _completion = completion {
-                    _completion(result.value);
-                }
-            }
-            
-            if result.isSuccess, let value = result.value {
-                self.entityList.append(contentsOf: (value as [MarvelEntityRepresentable]));
-                self.page += 1;
-            }
+        self.currentViewModel.retrieveData(completion);
+    }
+}
+
+
+// MARK: Private
+private extension MasterViewModel {
+    func entityListViewModel(for entityType: MarvelEntityType) -> MarvelEntityListViewModeling {
+        switch entityType {
+        case .characters:
+            return self.characterListViewModel;
+        default:
+            return self.characterListViewModel;
         }
     }
 }

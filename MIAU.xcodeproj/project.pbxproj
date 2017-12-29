@@ -39,6 +39,8 @@
 		569832FF1FF4ECF300C4FA5F /* MainTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569832F71FF4ECF300C4FA5F /* MainTheme.swift */; };
 		569833041FF50AFA00C4FA5F /* Marvel-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 569833021FF5053800C4FA5F /* Marvel-Bold.ttf */; };
 		569833051FF50AFA00C4FA5F /* Marvel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 569833031FF5053800C4FA5F /* Marvel-Regular.ttf */; };
+		5698330E1FF6AE1800C4FA5F /* MarvelEntityListViewModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5698330D1FF6AE1800C4FA5F /* MarvelEntityListViewModeling.swift */; };
+		569833101FF6AFF300C4FA5F /* CharactersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5698330F1FF6AFF300C4FA5F /* CharactersListViewModel.swift */; };
 		56F301EE1FF2ACB900584929 /* MarvelCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F301ED1FF2ACB900584929 /* MarvelCreator.swift */; };
 		56F301F01FF2F3D200584929 /* MarvelEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F301EF1FF2F3D200584929 /* MarvelEvent.swift */; };
 		56F301F21FF2FC9600584929 /* MarvelSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F301F11FF2FC9600584929 /* MarvelSerie.swift */; };
@@ -108,6 +110,8 @@
 		569832F71FF4ECF300C4FA5F /* MainTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTheme.swift; sourceTree = "<group>"; };
 		569833021FF5053800C4FA5F /* Marvel-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marvel-Bold.ttf"; sourceTree = "<group>"; };
 		569833031FF5053800C4FA5F /* Marvel-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marvel-Regular.ttf"; sourceTree = "<group>"; };
+		5698330D1FF6AE1800C4FA5F /* MarvelEntityListViewModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelEntityListViewModeling.swift; sourceTree = "<group>"; };
+		5698330F1FF6AFF300C4FA5F /* CharactersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewModel.swift; sourceTree = "<group>"; };
 		56F301ED1FF2ACB900584929 /* MarvelCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCreator.swift; sourceTree = "<group>"; };
 		56F301EF1FF2F3D200584929 /* MarvelEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelEvent.swift; sourceTree = "<group>"; };
 		56F301F11FF2FC9600584929 /* MarvelSerie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelSerie.swift; sourceTree = "<group>"; };
@@ -310,6 +314,8 @@
 			children = (
 				56F301FD1FF3F9F200584929 /* MasterViewModel.swift */,
 				56F302081FF40C8900584929 /* EntityCellViewModel.swift */,
+				5698330D1FF6AE1800C4FA5F /* MarvelEntityListViewModeling.swift */,
+				5698330F1FF6AFF300C4FA5F /* CharactersListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -580,6 +586,7 @@
 				56F301F71FF3F05D00584929 /* MasterViewController.swift in Sources */,
 				56F301F91FF3F14600584929 /* UITableViewCell+reuseIdentifier.swift in Sources */,
 				564721441FF238CD0090EDAB /* MarvelComic.swift in Sources */,
+				569833101FF6AFF300C4FA5F /* CharactersListViewModel.swift in Sources */,
 				5671493D1FF03C4700811866 /* String+MD5.swift in Sources */,
 				567149191FF018CB00811866 /* AppDelegate.swift in Sources */,
 				56917C331FF1A3C10036EEAD /* MarvelCharacter.swift in Sources */,
@@ -596,6 +603,7 @@
 				56917C411FF1BDB90036EEAD /* MarvelCreatorListItem.swift in Sources */,
 				56917C391FF1B42F0036EEAD /* MarvelStoryListItem.swift in Sources */,
 				56F301EE1FF2ACB900584929 /* MarvelCreator.swift in Sources */,
+				5698330E1FF6AE1800C4FA5F /* MarvelEntityListViewModeling.swift in Sources */,
 				56917C431FF1BDD80036EEAD /* MarvelEventListItem.swift in Sources */,
 				567149391FF032EB00811866 /* MarvelAPIConnector.swift in Sources */,
 				569832FF1FF4ECF300C4FA5F /* MainTheme.swift in Sources */,
