@@ -21,6 +21,9 @@ class EntityCellViewModel {
         switch entity.type {
             case .characters:
                 return (entity as? MarvelCharacter)?.name ?? "";
+            case .comics:
+                return (entity as? MarvelComic)?.title ?? "";
+            
             default:
                 return "";
         }
@@ -32,14 +35,9 @@ class EntityCellViewModel {
             return ""
         }
         
-        switch entity.type {
-            case .characters:
-                let defaultValue = "No info avaliable";
-                guard let des = entity.description else { return defaultValue; }
-                return des.isEmpty ? defaultValue : des;
-            default:
-                return "";
-        }
+        let defaultValue = "No info avaliable";
+        guard let des = entity.description else { return defaultValue; }
+        return des.isEmpty ? defaultValue : des;
     }
     
     var imagePlaceholder: UIImage? {
@@ -50,6 +48,8 @@ class EntityCellViewModel {
         switch entity.type {
             case .characters:
                 return #imageLiteral(resourceName: "placeholder-characters");
+            case .comics:
+                return #imageLiteral(resourceName: "placeholder-comics");
             default:
                 return nil;
         }
@@ -60,12 +60,6 @@ class EntityCellViewModel {
         guard let entity = self.entity else {
             return nil;
         }
-        
-        switch entity.type {
-            case .characters:
-                return entity.imageSquareURL;
-            default:
-                return nil;
-        }
+        return entity.imageSquareURL;
     }
 }

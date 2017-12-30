@@ -13,6 +13,7 @@ class MasterViewModel {
     
     private let entityTypes: [MarvelEntityType] = [.characters, .comics, .creators, .events, .series, .stories];
     private let characterListViewModel: CharactersListViewModel = CharactersListViewModel();
+    private let comicListViewModel: ComicsListViewModel = ComicsListViewModel();
     private var currentViewModel: MarvelEntityListViewModeling!
     
     init(with selectedType: MarvelEntityType = .characters) {
@@ -34,7 +35,8 @@ class MasterViewModel {
     
     var selectedTypeIndex: Int = 0 {
         didSet {
-            // TODO: Need to retrieve new data
+            if oldValue == self.selectedTypeIndex { return; }
+            self.currentViewModel = self.entityListViewModel(for: self.selectedTypeIndex);
         }
     }
     
@@ -65,10 +67,16 @@ class MasterViewModel {
 private extension MasterViewModel {
     func entityListViewModel(for entityType: MarvelEntityType) -> MarvelEntityListViewModeling {
         switch entityType {
-        case .characters:
-            return self.characterListViewModel;
-        default:
-            return self.characterListViewModel;
+            case .characters:
+                return self.characterListViewModel;
+            case .comics:
+                return self.comicListViewModel;
+            default:
+                return self.characterListViewModel;
         }
+    }
+    
+    func entityListViewModel(for index: Int) -> MarvelEntityListViewModeling {
+        return self.entityListViewModel(for: self.entityTypes[index]);
     }
 }

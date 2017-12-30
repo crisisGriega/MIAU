@@ -1,5 +1,5 @@
 //
-//  CharactersListViewModel.swift
+//  ComicsListViewModel.swift
 //  MIAU
 //
 //  Created by Gerardo on 29/12/2017.
@@ -10,9 +10,9 @@ import Foundation
 import Alamofire
 
 
-class CharactersListViewModel: MarvelEntityListViewModeling {
+class ComicsListViewModel: MarvelEntityListViewModeling {
     
-    private var list: [MarvelCharacter] = [];
+    private var list: [MarvelComic] = [];
     var entityList: [MarvelEntityRepresentable] {
         return self.list;
     }
@@ -31,7 +31,7 @@ class CharactersListViewModel: MarvelEntityListViewModeling {
         }
         self.isRetrieving = true;
         let offset: Int = self.itemsPerPage * (self.page-1);
-        DataProvider.getEntityList(of: .characters, limit: self.itemsPerPage, offset: offset) { (result: Result<[MarvelCharacter]>) in
+        DataProvider.getEntityList(of: .comics, limit: self.itemsPerPage, offset: offset) { (result: Result<[MarvelComic]>) in
             self.isRetrieving = false;
             defer {
                 if let _completion = completion {

@@ -17,6 +17,7 @@ class MasterViewController: UIViewController {
     @IBOutlet weak var progressView: DSGradientProgressView!
     
     private let viewModel: MasterViewModel = MasterViewModel();
+    private var reloadWorkItem: DispatchWorkItem?
     // Used for cell height calculations
     private let cellViewModel: EntityCellViewModel = EntityCellViewModel();
     
@@ -78,11 +79,7 @@ class MasterViewController: UIViewController {
             self.navigationController?.navigationBar.barTintColor = theme.color(for: "primary");
         }
         
-        self.progressView.wait();
-        self.viewModel.retrieveData { (items) in
-            self.tableView.reloadData();
-            self.progressView.signal();
-        }
+        self.firstLoad();
     }
 }
 
@@ -168,6 +165,17 @@ extension MasterViewController: UISearchResultsUpdating {
 extension MasterViewController: AKPickerViewDelegate {
     func pickerView(_ pickerView: AKPickerView, didSelectItem item: Int) {
         self.viewModel.selectedTypeIndex = item;
+        
+        self.reloadWorkItem?.cancel();
+        self.reloadWorkItem = DispatchWorkItem { [weak self] in
+            if self?.viewModel.numberOfItems == 0 {
+                self?.firstLoad();
+            }
+            else {
+                self?.tableView.reloadData();
+            }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: self.reloadWorkItem!);
     }
 }
 
@@ -180,5 +188,17 @@ extension MasterViewController: AKPickerViewDataSource {
     
     func pickerView(_ pickerView: AKPickerView, titleForItem item: Int) -> String {
         return self.viewModel.nameForTypeAtIndex(item);
+    }
+}
+
+
+// MARK: Private
+private extension MasterViewController {
+    func firstLoad() {
+        self.progressView.wait();
+        self.viewModel.retrieveData { (items) in
+            self.tableView.reloadData();
+            self.progressView.signal();
+        }
     }
 }
