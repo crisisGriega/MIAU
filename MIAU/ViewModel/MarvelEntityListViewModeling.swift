@@ -15,6 +15,7 @@ protocol MarvelEntityListViewModeling {
     var entityType: MarvelEntityType { get }
     var numberOfItems: Int { get }
     var itemsPerPage: Int { get }
+    var queryCondition: String? { get set }
     
     func itemFor(_ indexPath: IndexPath) -> MarvelEntityRepresentable?
     func retrieveData(_ completion: (([MarvelEntityRepresentable]?) -> Void)?)

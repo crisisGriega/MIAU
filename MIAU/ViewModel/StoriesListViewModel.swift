@@ -16,6 +16,15 @@ class StoriesListViewModel: MarvelEntityListViewModeling {
     var entityList: [MarvelEntityRepresentable] {
         return self.list;
     }
+    var queryCondition: String? {
+        didSet {
+            guard oldValue != queryCondition else { return; }
+            self.page = 1;
+            self.list.removeAll();
+            self.isRetrieving = false;
+            self.request?.cancel();
+        }
+    }
     
     var entityType: MarvelEntityType {
         return .stories;
@@ -23,6 +32,7 @@ class StoriesListViewModel: MarvelEntityListViewModeling {
     
     private var isRetrieving: Bool = false;
     private var page: Int = 1;
+    private var request: DataRequest?;
     
     func retrieveData(_ completion: (([MarvelEntityRepresentable]?) -> Void)?) {
         if self.isRetrieving {
@@ -33,7 +43,7 @@ class StoriesListViewModel: MarvelEntityListViewModeling {
         }
         self.isRetrieving = true;
         let offset: Int = self.itemsPerPage * (self.page-1);
-        self.dataProvider.getEntityList(of: self.entityType, limit: self.itemsPerPage, offset: offset) { (result: Result<[MarvelStory]>) in
+        self.request = self.dataProvider.getEntityList(of: self.entityType, limit: self.itemsPerPage, offset: offset, queryCondition: self.queryCondition) { (result: Result<[MarvelStory]>) in
             self.isRetrieving = false;
             defer {
                 if let _completion = completion {

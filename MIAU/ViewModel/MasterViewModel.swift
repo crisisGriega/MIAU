@@ -25,6 +25,17 @@ class MasterViewModel {
         self.currentViewModel = self.entityListViewModel(for: selectedType);
     }
     
+    var isSearchable: Bool {
+        return self.entityTypes[self.selectedTypeIndex] != .stories;
+    }
+    
+    var queryCondition: String? {
+        didSet {
+            guard oldValue != queryCondition  else { return; }
+            self.currentViewModel.queryCondition = queryCondition;
+        }
+    }
+    
     // Types
     var numberOfTypes: Int {
         return self.entityTypes.count;
@@ -40,8 +51,9 @@ class MasterViewModel {
     
     var selectedTypeIndex: Int = 0 {
         didSet {
-            if oldValue == self.selectedTypeIndex { return; }
+            guard oldValue != self.selectedTypeIndex else { return; }
             self.currentViewModel = self.entityListViewModel(for: self.selectedTypeIndex);
+            self.currentViewModel.queryCondition = self.queryCondition;
         }
     }
     

@@ -18,7 +18,7 @@ class DataProvider {
     
     private let apiConnector: MarvelAPIConnector = MarvelAPIConnector();
     
-    func getEntityList<Entity: Mappable>(of entityType: MarvelEntityType, limit: Int? = 20, offset: Int? = nil, queryCondition: String? = nil, completion: @escaping (Result<[Entity]>) -> Void) where Entity: MarvelEntityRepresentable {
+    @discardableResult func getEntityList<Entity: Mappable>(of entityType: MarvelEntityType, limit: Int? = 20, offset: Int? = nil, queryCondition: String? = nil, completion: @escaping (Result<[Entity]>) -> Void) -> DataRequest  where Entity: MarvelEntityRepresentable {
         var args: [String: String] = [:];
         
         if let _limit = limit {
@@ -34,9 +34,11 @@ class DataProvider {
         args["orderBy"] = self.orderByFor(entityType);
         
         let url = self.apiConnector.urlFor(entityType, args: args);
-        Alamofire.request(url).responseArray(keyPath: "data.results") { (response: DataResponse<[Entity]>) in
+        let request = Alamofire.request(url).responseArray(keyPath: "data.results") { (response: DataResponse<[Entity]>) in
             completion(response.result);
         }
+        
+        return request;
     }
 }
 

@@ -49,7 +49,7 @@ class MasterViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
         
-        self.firstLoad();
+        self.retrieveData();
     }
 }
 
@@ -126,7 +126,17 @@ extension MasterViewController: UITableViewDelegate {
 // MARK: UISearchResultsUpdating
 extension MasterViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        // TODO: Retrieve new data
+        guard let searchText = searchController.searchBar.text else { return; }
+        
+        let value = !searchText.isEmpty ? searchText : nil;
+        self.viewModel.queryCondition = value;
+        self.tableView.reloadData();
+        
+        self.reloadWorkItem?.cancel();
+        self.reloadWorkItem = DispatchWorkItem { [weak self] in
+            self?.retrieveData();
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: self.reloadWorkItem!);
     }
 }
 
@@ -135,11 +145,14 @@ extension MasterViewController: UISearchResultsUpdating {
 extension MasterViewController: AKPickerViewDelegate {
     func pickerView(_ pickerView: AKPickerView, didSelectItem item: Int) {
         self.viewModel.selectedTypeIndex = item;
+        self.searchController.searchBar.isUserInteractionEnabled = self.viewModel.isSearchable;
+        if !self.viewModel.isSearchable { self.searchController.isActive = false; }
         
+        self.tableView.reloadData();
         self.reloadWorkItem?.cancel();
         self.reloadWorkItem = DispatchWorkItem { [weak self] in
             if self?.viewModel.numberOfItems == 0 {
-                self?.firstLoad();
+                self?.retrieveData();
             }
             else {
                 self?.tableView.reloadData();
@@ -164,7 +177,7 @@ extension MasterViewController: AKPickerViewDataSource {
 
 // MARK: Private
 private extension MasterViewController {
-    func firstLoad() {
+    func retrieveData() {
         self.progressView.wait();
         self.viewModel.retrieveData { (items) in
             self.tableView.reloadData();

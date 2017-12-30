@@ -16,6 +16,15 @@ class EventsListViewModel: MarvelEntityListViewModeling {
     var entityList: [MarvelEntityRepresentable] {
         return self.list;
     }
+    var queryCondition: String? {
+        didSet {
+            guard oldValue != queryCondition  else { return; }
+            self.page = 1;
+            self.list.removeAll();
+            self.isRetrieving = false;
+            self.request?.cancel();
+        }
+    }
     
     var entityType: MarvelEntityType {
         return .events;
@@ -23,6 +32,7 @@ class EventsListViewModel: MarvelEntityListViewModeling {
     
     private var isRetrieving: Bool = false;
     private var page: Int = 1;
+    private var request: DataRequest?;
     
     func retrieveData(_ completion: (([MarvelEntityRepresentable]?) -> Void)?) {
         if self.isRetrieving {
@@ -33,7 +43,7 @@ class EventsListViewModel: MarvelEntityListViewModeling {
         }
         self.isRetrieving = true;
         let offset: Int = self.itemsPerPage * (self.page-1);
-        self.dataProvider.getEntityList(of: self.entityType, limit: self.itemsPerPage, offset: offset) { (result: Result<[MarvelEvent]>) in
+        self.request = self.dataProvider.getEntityList(of: self.entityType, limit: self.itemsPerPage, offset: offset, queryCondition: self.queryCondition) { (result: Result<[MarvelEvent]>) in
             self.isRetrieving = false;
             defer {
                 if let _completion = completion {
