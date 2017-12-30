@@ -10,9 +10,9 @@
 		564721441FF238CD0090EDAB /* MarvelComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564721431FF238CD0090EDAB /* MarvelComic.swift */; };
 		564721461FF2963A0090EDAB /* ParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564721451FF2963A0090EDAB /* ParsingTests.swift */; };
 		565539FD1FF6CAD300380F31 /* ComicsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565539FC1FF6CAD300380F31 /* ComicsListViewModel.swift */; };
+		565539FF1FF7DB3200380F31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 565539FE1FF7DB3200380F31 /* Assets.xcassets */; };
 		567149191FF018CB00811866 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567149181FF018CB00811866 /* AppDelegate.swift */; };
 		5671491E1FF018CB00811866 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5671491C1FF018CB00811866 /* Main.storyboard */; };
-		567149201FF018CB00811866 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5671491F1FF018CB00811866 /* Assets.xcassets */; };
 		567149231FF018CB00811866 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567149211FF018CB00811866 /* LaunchScreen.storyboard */; };
 		5671492F1FF0247C00811866 /* APIConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5671492E1FF0247C00811866 /* APIConfiguration.plist */; };
 		567149321FF0275C00811866 /* MarvelEntityRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567149311FF0275C00811866 /* MarvelEntityRepresentable.swift */; };
@@ -77,10 +77,10 @@
 		564721431FF238CD0090EDAB /* MarvelComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelComic.swift; sourceTree = "<group>"; };
 		564721451FF2963A0090EDAB /* ParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingTests.swift; sourceTree = "<group>"; };
 		565539FC1FF6CAD300380F31 /* ComicsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListViewModel.swift; sourceTree = "<group>"; };
+		565539FE1FF7DB3200380F31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		567149151FF018CB00811866 /* MIAU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MIAU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		567149181FF018CB00811866 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5671491D1FF018CB00811866 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5671491F1FF018CB00811866 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		567149221FF018CB00811866 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		567149241FF018CB00811866 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5671492E1FF0247C00811866 /* APIConfiguration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIConfiguration.plist; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 				569833001FF5052500C4FA5F /* Resources */,
 				567149181FF018CB00811866 /* AppDelegate.swift */,
 				5671491C1FF018CB00811866 /* Main.storyboard */,
-				5671491F1FF018CB00811866 /* Assets.xcassets */,
+				565539FE1FF7DB3200380F31 /* Assets.xcassets */,
 				567149211FF018CB00811866 /* LaunchScreen.storyboard */,
 				567149241FF018CB00811866 /* Info.plist */,
 				5671493E1FF03D5C00811866 /* MIAU-Bridging-Header.h */,
@@ -443,10 +443,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				567149231FF018CB00811866 /* LaunchScreen.storyboard in Resources */,
-				567149201FF018CB00811866 /* Assets.xcassets in Resources */,
 				569833041FF50AFA00C4FA5F /* Marvel-Bold.ttf in Resources */,
 				569833051FF50AFA00C4FA5F /* Marvel-Regular.ttf in Resources */,
 				56F3020B1FF4335F00584929 /* EntityTableViewCell.xib in Resources */,
+				565539FF1FF7DB3200380F31 /* Assets.xcassets in Resources */,
 				5671492F1FF0247C00811866 /* APIConfiguration.plist in Resources */,
 				5671491E1FF018CB00811866 /* Main.storyboard in Resources */,
 			);

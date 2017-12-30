@@ -45,15 +45,7 @@ class EntityCellViewModel {
             return nil;
         }
         
-        switch entity.type {
-            case .characters:
-                return #imageLiteral(resourceName: "placeholder-characters");
-            case .comics:
-                return #imageLiteral(resourceName: "placeholder-comics");
-            default:
-                return nil;
-        }
-            
+        return UIImage(named: "placeholder-\(entity.type)");
     }
     
     var imageURL: URL? {

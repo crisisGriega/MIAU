@@ -37,8 +37,8 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghw-Z6-HYa" customClass="DSGradientProgressView" customModule="DSGradientProgressView">
-                                <rect key="frame" x="0.0" y="664" width="375" height="3"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghw-Z6-HYa" customClass="DSGradientProgressView" customModule="DSGradientProgressView">
+                                <rect key="frame" x="0.0" y="91" width="375" height="3"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="QG9-5w-PF9"/>
@@ -48,11 +48,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="S5a-y3-PBO" firstAttribute="trailing" secondItem="ghw-Z6-HYa" secondAttribute="trailing" id="8xD-s7-HOA"/>
-                            <constraint firstItem="S5a-y3-PBO" firstAttribute="bottom" secondItem="ghw-Z6-HYa" secondAttribute="bottom" id="DEr-Er-hNW"/>
                             <constraint firstItem="S5a-y3-PBO" firstAttribute="trailing" secondItem="djG-Q9-gUd" secondAttribute="trailing" id="MfL-Lp-5sE"/>
                             <constraint firstItem="ghw-Z6-HYa" firstAttribute="leading" secondItem="S5a-y3-PBO" secondAttribute="leading" id="PRS-46-W2K"/>
                             <constraint firstItem="S5a-y3-PBO" firstAttribute="bottom" secondItem="djG-Q9-gUd" secondAttribute="bottom" id="TDS-x6-dxe"/>
                             <constraint firstItem="djG-Q9-gUd" firstAttribute="leading" secondItem="S5a-y3-PBO" secondAttribute="leading" id="Xjf-C2-7dG"/>
+                            <constraint firstItem="ghw-Z6-HYa" firstAttribute="top" secondItem="djG-Q9-gUd" secondAttribute="top" constant="27" id="fLO-KS-pnd"/>
                             <constraint firstItem="S5a-y3-PBO" firstAttribute="top" secondItem="djG-Q9-gUd" secondAttribute="top" id="rpk-sr-xrH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S5a-y3-PBO"/>
@@ -80,7 +80,7 @@
                         </view>
                     </navigationItem>
                     <connections>
-                        <outlet property="progressView" destination="ghw-Z6-HYa" id="ZTW-pb-fxp"/>
+                        <outlet property="progressView" destination="ghw-Z6-HYa" id="IJw-Q0-LQO"/>
                         <outlet property="tableView" destination="djG-Q9-gUd" id="eav-dg-eRH"/>
                     </connections>
                 </viewController>

@@ -23,20 +23,13 @@ class MasterViewController: UIViewController {
     
     private let searchController: UISearchController = UISearchController(searchResultsController: nil);
     
-    
     private lazy var picker: AKPickerView = {
-        let frame: CGRect = CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 44);
+        var frame: CGRect = CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 30);
         let picker: AKPickerView = AKPickerView(frame: frame);
         picker.delegate = self;
         picker.dataSource = self;
         
         picker.interitemSpacing = 10.0;
-        
-        if let theme = Theme.currentTheme {
-            picker.backgroundColor = theme.color(for: "secondary") ?? .black;
-            picker.textColor = theme.color(for: "tertiary") ?? .white;
-            picker.highlightedTextColor = theme.color(for: "sexary") ?? .red;
-        }
         
         picker.reloadData();
         
@@ -44,40 +37,17 @@ class MasterViewController: UIViewController {
     }();
     
     // MARK: Lifecycle
-    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
         
-        // Set up searchController
-        self.searchController.searchResultsUpdater = self;
-        self.searchController.obscuresBackgroundDuringPresentation = false;
-        self.searchController.searchBar.placeholder = "";
+        self.setUpSearechController();
+        self.setUpTableView();
         
-        self.navigationItem.searchController = self.searchController;
-        self.definesPresentationContext = true;
-        if let theme = Theme.currentTheme {
-            let color = theme.color(for: "sexary");
-            self.searchController.searchBar.tintColor = color;
-            self.progressView.barColor = theme.color(for: "quinary") ?? .red;
-        }
-        
-        // Set up tableView
-        let reuseId = EntityTableViewCell.reuseIdentifier;
-        let nib = UINib.init(nibName: reuseId, bundle: nil);
-        self.tableView.register(nib, forCellReuseIdentifier: reuseId);
-        self.tableView.dataSource = self;
-        self.tableView.delegate = self;
-        if let theme = Theme.currentTheme {
-            self.view.backgroundColor = theme.color(for: "secondary");
-            self.tableView.backgroundColor = theme.color(for: "secondary");
-        }
+        self.styleUIElements();
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
-        if let theme = Theme.currentTheme {
-            self.navigationController?.navigationBar.barTintColor = theme.color(for: "primary");
-        }
         
         self.firstLoad();
     }
@@ -199,6 +169,42 @@ private extension MasterViewController {
         self.viewModel.retrieveData { (items) in
             self.tableView.reloadData();
             self.progressView.signal();
+        }
+    }
+    
+    func setUpSearechController() {
+        self.searchController.searchResultsUpdater = self;
+        self.searchController.obscuresBackgroundDuringPresentation = false;
+        self.searchController.searchBar.placeholder = "";
+        
+        self.navigationItem.searchController = self.searchController;
+        self.definesPresentationContext = true;
+    }
+    
+    func setUpTableView() {
+        let reuseId = EntityTableViewCell.reuseIdentifier;
+        let nib = UINib.init(nibName: reuseId, bundle: nil);
+        self.tableView.register(nib, forCellReuseIdentifier: reuseId);
+        self.tableView.dataSource = self;
+        self.tableView.delegate = self;
+    }
+    
+    func styleUIElements() {
+        if let theme = Theme.currentTheme {
+            self.navigationController?.navigationBar.barTintColor = theme.color(for: "primary");
+            
+            self.view.backgroundColor = theme.color(for: "secondary");
+            
+            self.tableView.backgroundColor = theme.color(for: "secondary");
+            
+            self.picker.backgroundColor = theme.color(for: "secondary") ?? .black;
+            self.picker.textColor = theme.color(for: "tertiary") ?? .white;
+            self.picker.highlightedTextColor = theme.color(for: "sexary") ?? .red;
+            
+            self.searchController.searchBar.tintColor = theme.color(for: "sexary") ?? .white;
+            
+            self.progressView.backgroundColor = theme.color(for: "secondary") ?? .red;
+            self.progressView.barColor = theme.color(for: "quinary") ?? .red;
         }
     }
 }
