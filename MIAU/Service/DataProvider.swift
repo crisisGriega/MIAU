@@ -13,9 +13,9 @@ import ObjectMapper
 
 
 class DataProvider {
-    static let apiConnector: MarvelAPIConnector = MarvelAPIConnector();
+    private let apiConnector: MarvelAPIConnector = MarvelAPIConnector();
     
-    static func getCharacterList(limit: Int? = 20, offset: Int? = nil, completion: @escaping (Result<[MarvelCharacter]>) -> Void) {
+    func getEntityList<Entity: Mappable>(of entityType: MarvelEntityType, limit: Int? = 20, offset: Int? = nil, queryCondition: String? = nil, completion: @escaping (Result<[Entity]>) -> Void) where Entity: MarvelEntityRepresentable {
         var args: [String: String] = [:];
         
         if let _limit = limit {
@@ -25,25 +25,46 @@ class DataProvider {
             args["offset"] = String(_offset);
         }
         
-        let url = self.apiConnector.urlFor(.characters, args: args);
-        Alamofire.request(url).responseArray(keyPath: "data.results") { (response: DataResponse<[MarvelCharacter]>) in
-            completion(response.result);
+        if let condition = queryCondition, let key = self.queryArgFor(entityType) {
+            args[key] = condition.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
         }
-    }
-    
-    static func getEntityList<Entity: Mappable>(of entityType: MarvelEntityType, limit: Int? = 20, offset: Int? = nil, completion: @escaping (Result<[Entity]>) -> Void) where Entity: MarvelEntityRepresentable {
-        var args: [String: String] = [:];
-        
-        if let _limit = limit {
-            args["limit"] = String(_limit);
-        }
-        if let _offset = offset {
-            args["offset"] = String(_offset);
-        }
+        args["orderBy"] = self.orderByFor(entityType);
         
         let url = self.apiConnector.urlFor(entityType, args: args);
         Alamofire.request(url).responseArray(keyPath: "data.results") { (response: DataResponse<[Entity]>) in
             completion(response.result);
+        }
+    }
+}
+
+
+// MARK: Private
+private extension DataProvider {
+    func queryArgFor(_ entityType: MarvelEntityType) -> String? {
+        switch entityType {
+            case .characters, .creators, .events:
+                return "nameStartsWith";
+            case .comics, .series:
+                return "titleStartsWith";
+            default:
+                return nil;
+        }
+    }
+    
+    func orderByFor(_ entityType: MarvelEntityType) -> String {
+        switch entityType {
+            case .characters:
+                return "name";
+            case .comics:
+                return "title,issueNumber";
+            case .creators:
+                return "firstName,lastName";
+            case  .events:
+                return "name,startDate";
+            case .series:
+                return "title,startYear";
+            case .stories:
+                return "id";
         }
     }
 }

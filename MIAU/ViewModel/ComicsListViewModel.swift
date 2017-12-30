@@ -11,7 +11,7 @@ import Alamofire
 
 
 class ComicsListViewModel: MarvelEntityListViewModeling {
-    
+    let dataProvider: DataProvider = DataProvider();
     private var list: [MarvelComic] = [];
     var entityList: [MarvelEntityRepresentable] {
         return self.list;
@@ -33,7 +33,7 @@ class ComicsListViewModel: MarvelEntityListViewModeling {
         }
         self.isRetrieving = true;
         let offset: Int = self.itemsPerPage * (self.page-1);
-        DataProvider.getEntityList(of: self.entityType, limit: self.itemsPerPage, offset: offset) { (result: Result<[MarvelComic]>) in
+        self.dataProvider.getEntityList(of: self.entityType, limit: self.itemsPerPage, offset: offset) { (result: Result<[MarvelComic]>) in
             self.isRetrieving = false;
             defer {
                 if let _completion = completion {

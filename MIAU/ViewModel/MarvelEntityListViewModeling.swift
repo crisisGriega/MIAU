@@ -10,6 +10,7 @@ import Foundation
 
 
 protocol MarvelEntityListViewModeling {
+    var dataProvider: DataProvider { get }
     var entityList: [MarvelEntityRepresentable] { get }
     var entityType: MarvelEntityType { get }
     var numberOfItems: Int { get }
