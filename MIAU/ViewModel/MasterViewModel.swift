@@ -14,6 +14,11 @@ class MasterViewModel {
     private let entityTypes: [MarvelEntityType] = [.characters, .comics, .creators, .events, .series, .stories];
     private let characterListViewModel: CharactersListViewModel = CharactersListViewModel();
     private let comicListViewModel: ComicsListViewModel = ComicsListViewModel();
+    private let creatorListViewModel: CreatorsListViewModel = CreatorsListViewModel();
+    private let eventListViewModel: EventsListViewModel = EventsListViewModel();
+    private let serieListViewModel: SeriesListViewModel = SeriesListViewModel();
+    private let storyListViewModel: StoriesListViewModel = StoriesListViewModel();
+    
     private var currentViewModel: MarvelEntityListViewModeling!
     
     init(with selectedType: MarvelEntityType = .characters) {
@@ -71,8 +76,14 @@ private extension MasterViewModel {
                 return self.characterListViewModel;
             case .comics:
                 return self.comicListViewModel;
-            default:
-                return self.characterListViewModel;
+            case .creators:
+                return self.creatorListViewModel;
+            case .events:
+                return self.eventListViewModel;
+            case .series:
+                return self.serieListViewModel;
+            case .stories:
+                return self.storyListViewModel;
         }
     }
     

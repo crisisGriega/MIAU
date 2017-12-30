@@ -17,7 +17,9 @@ class ComicsListViewModel: MarvelEntityListViewModeling {
         return self.list;
     }
     
-    var itemsPerPage: Int = 100;
+    var entityType: MarvelEntityType {
+        return .comics;
+    }
     
     private var isRetrieving: Bool = false;
     private var page: Int = 1;
@@ -31,7 +33,7 @@ class ComicsListViewModel: MarvelEntityListViewModeling {
         }
         self.isRetrieving = true;
         let offset: Int = self.itemsPerPage * (self.page-1);
-        DataProvider.getEntityList(of: .comics, limit: self.itemsPerPage, offset: offset) { (result: Result<[MarvelComic]>) in
+        DataProvider.getEntityList(of: self.entityType, limit: self.itemsPerPage, offset: offset) { (result: Result<[MarvelComic]>) in
             self.isRetrieving = false;
             defer {
                 if let _completion = completion {

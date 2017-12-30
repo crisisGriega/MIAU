@@ -11,6 +11,7 @@ import Foundation
 
 protocol MarvelEntityListViewModeling {
     var entityList: [MarvelEntityRepresentable] { get }
+    var entityType: MarvelEntityType { get }
     var numberOfItems: Int { get }
     var itemsPerPage: Int { get }
     
@@ -23,6 +24,10 @@ extension MarvelEntityListViewModeling {
     
     var numberOfItems: Int {
         return self.entityList.count;
+    }
+    
+    var itemsPerPage: Int {
+        return 100;
     }
     
     func itemFor(_ indexPath: IndexPath) -> MarvelEntityRepresentable? {

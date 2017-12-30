@@ -23,21 +23,32 @@ class EntityCellViewModel {
                 return (entity as? MarvelCharacter)?.name ?? "";
             case .comics:
                 return (entity as? MarvelComic)?.title ?? "";
-            
-            default:
-                return "";
+            case .creators:
+                return (entity as? MarvelCreator)?.fullName ?? "";
+            case .events:
+                return (entity as? MarvelEvent)?.title ?? "";
+            case .series:
+                return (entity as? MarvelSerie)?.title ?? "";
+            case .stories:
+                return (entity as? MarvelStory)?.storyType?.rawValue ?? "";
         }
         
     }
     
     var subTitle: String {
+        let defaultValue = "No info avaliable";
+        
         guard let entity = self.entity else {
-            return ""
+            return defaultValue;
         }
         
-        let defaultValue = "No info avaliable";
-        guard let des = entity.description else { return defaultValue; }
-        return des.isEmpty ? defaultValue : des;
+        switch entity.type {
+        case .stories:
+            return (entity as? MarvelStory)?.title ?? defaultValue;
+        default:
+            guard let des = entity.description else { return defaultValue; }
+            return des.isEmpty ? defaultValue : des;
+        }
     }
     
     var imagePlaceholder: UIImage? {

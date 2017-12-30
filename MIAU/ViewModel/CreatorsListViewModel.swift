@@ -1,8 +1,8 @@
 //
-//  CharactersListViewModel.swift
+//  CreatorsListViewModel.swift
 //  MIAU
 //
-//  Created by Gerardo on 29/12/2017.
+//  Created by Gerardo on 30/12/2017.
 //  Copyright © 2017 crisisGriega. All rights reserved.
 //
 
@@ -10,15 +10,15 @@ import Foundation
 import Alamofire
 
 
-class CharactersListViewModel: MarvelEntityListViewModeling {
+class CreatorsListViewModel: MarvelEntityListViewModeling {
     
-    private var list: [MarvelCharacter] = [];
+    private var list: [MarvelCreator] = [];
     var entityList: [MarvelEntityRepresentable] {
         return self.list;
     }
     
     var entityType: MarvelEntityType {
-        return .characters;
+        return .creators;
     }
     
     private var isRetrieving: Bool = false;
@@ -33,7 +33,7 @@ class CharactersListViewModel: MarvelEntityListViewModeling {
         }
         self.isRetrieving = true;
         let offset: Int = self.itemsPerPage * (self.page-1);
-        DataProvider.getEntityList(of: self.entityType, limit: self.itemsPerPage, offset: offset) { (result: Result<[MarvelCharacter]>) in
+        DataProvider.getEntityList(of: self.entityType, limit: self.itemsPerPage, offset: offset) { (result: Result<[MarvelCreator]>) in
             self.isRetrieving = false;
             defer {
                 if let _completion = completion {
@@ -48,3 +48,4 @@ class CharactersListViewModel: MarvelEntityListViewModeling {
         }
     }
 }
+
