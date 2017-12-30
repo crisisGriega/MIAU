@@ -25,7 +25,20 @@ class DataProviderTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+
+    func testDataProviderSearchForCharacter() {
+        let expectation = self.expectation(description: "expectation-data-provider-search-characters");
+        
+        let provider = DataProvider();
+        
+        provider.getEntityList(of: .characters, limit: 100, offset: 0, queryCondition: "spi") { (result: Result<[MarvelCharacter]>) in
+            XCTAssert(result.value?.first?.name == "Spider-dok");
+            
+            expectation.fulfill();
+        }
+        
+        waitForExpectations(timeout: 120.0) { (error) in }
+    }
     
     func testDataProviderSearchForCreator() {
         let expectation = self.expectation(description: "expectation-data-provider-search-creator");

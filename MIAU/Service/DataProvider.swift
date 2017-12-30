@@ -13,6 +13,9 @@ import ObjectMapper
 
 
 class DataProvider {
+    
+    static let `default`: DataProvider = DataProvider();
+    
     private let apiConnector: MarvelAPIConnector = MarvelAPIConnector();
     
     func getEntityList<Entity: Mappable>(of entityType: MarvelEntityType, limit: Int? = 20, offset: Int? = nil, queryCondition: String? = nil, completion: @escaping (Result<[Entity]>) -> Void) where Entity: MarvelEntityRepresentable {
