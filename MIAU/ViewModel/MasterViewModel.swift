@@ -12,24 +12,25 @@ import UIKit
 class MasterViewModel {
     
     private let entityTypes: [MarvelEntityType] = [.characters, .comics, .creators, .events, .series, .stories];
-    private let characterListViewModel: CharactersListViewModel = CharactersListViewModel();
-    private let comicListViewModel: ComicsListViewModel = ComicsListViewModel();
-    private let creatorListViewModel: CreatorsListViewModel = CreatorsListViewModel();
-    private let eventListViewModel: EventsListViewModel = EventsListViewModel();
-    private let serieListViewModel: SeriesListViewModel = SeriesListViewModel();
-    private let storyListViewModel: StoriesListViewModel = StoriesListViewModel();
+    private let viewModels: [MarvelEntityListViewModeling] = [
+        MarvelEntityListViewModel<MarvelCharacter>(entityType: .characters),
+        MarvelEntityListViewModel<MarvelComic>(entityType: .comics),
+        MarvelEntityListViewModel<MarvelCreator>(entityType: .creators),
+        MarvelEntityListViewModel<MarvelEvent>(entityType: .events),
+        MarvelEntityListViewModel<MarvelSerie>(entityType: .series),
+        MarvelEntityListViewModel<MarvelStory>(entityType: .stories)];
     
     private var currentViewModel: MarvelEntityListViewModeling!
     
     init(with selectedType: MarvelEntityType = .characters) {
-        self.currentViewModel = self.entityListViewModel(for: selectedType);
+        self.currentViewModel = self.viewModels[self.selectedTypeIndex];
     }
     
     var isSearchable: Bool {
         return self.entityTypes[self.selectedTypeIndex] != .stories;
     }
     
-    var queryCondition: String? {
+    var queryCondition: String? = nil {
         didSet {
             guard oldValue != queryCondition  else { return; }
             self.currentViewModel.queryCondition = queryCondition;
@@ -52,7 +53,7 @@ class MasterViewModel {
     var selectedTypeIndex: Int = 0 {
         didSet {
             guard oldValue != self.selectedTypeIndex else { return; }
-            self.currentViewModel = self.entityListViewModel(for: self.selectedTypeIndex);
+            self.currentViewModel = self.viewModels[self.selectedTypeIndex];
             self.currentViewModel.queryCondition = self.queryCondition;
         }
     }
@@ -76,30 +77,5 @@ class MasterViewModel {
     
     func retrieveData(_ completion: (([MarvelEntityRepresentable]?) -> Void)?) {
         self.currentViewModel.retrieveData(completion);
-    }
-}
-
-
-// MARK: Private
-private extension MasterViewModel {
-    func entityListViewModel(for entityType: MarvelEntityType) -> MarvelEntityListViewModeling {
-        switch entityType {
-            case .characters:
-                return self.characterListViewModel;
-            case .comics:
-                return self.comicListViewModel;
-            case .creators:
-                return self.creatorListViewModel;
-            case .events:
-                return self.eventListViewModel;
-            case .series:
-                return self.serieListViewModel;
-            case .stories:
-                return self.storyListViewModel;
-        }
-    }
-    
-    func entityListViewModel(for index: Int) -> MarvelEntityListViewModeling {
-        return self.entityListViewModel(for: self.entityTypes[index]);
     }
 }

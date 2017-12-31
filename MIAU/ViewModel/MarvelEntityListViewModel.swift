@@ -1,21 +1,23 @@
 //
-//  CharactersListViewModel.swift
+//  MarvelEntityListViewModel.swift
 //  MIAU
 //
-//  Created by Gerardo on 29/12/2017.
+//  Created by Gerardo on 31/12/2017.
 //  Copyright © 2017 crisisGriega. All rights reserved.
 //
 
 import Foundation
 import Alamofire
+import ObjectMapper
 
 
-class CharactersListViewModel: MarvelEntityListViewModeling {
+class MarvelEntityListViewModel<Entity: Mappable>: MarvelEntityListViewModeling where Entity: MarvelEntityRepresentable {
     let dataProvider: DataProvider = DataProvider();
-    private var list: [MarvelCharacter] = [];
+    private var list: [Entity] = [];
     var entityList: [MarvelEntityRepresentable] {
         return self.list;
     }
+    
     var queryCondition: String? {
         didSet {
             guard oldValue != queryCondition  else { return; }
@@ -26,13 +28,15 @@ class CharactersListViewModel: MarvelEntityListViewModeling {
         }
     }
     
-    var entityType: MarvelEntityType {
-        return .characters;
-    }
+    private(set) var entityType: MarvelEntityType;
     
     private var isRetrieving: Bool = false;
     private var page: Int = 1;
     private var request: DataRequest?;
+    
+    init(entityType: MarvelEntityType) {
+        self.entityType = entityType;
+    }
     
     func retrieveData(_ completion: (([MarvelEntityRepresentable]?) -> Void)?) {
         if self.isRetrieving {
@@ -43,7 +47,7 @@ class CharactersListViewModel: MarvelEntityListViewModeling {
         }
         self.isRetrieving = true;
         let offset: Int = self.itemsPerPage * (self.page-1);
-        self.request = self.dataProvider.getEntityList(of: self.entityType, limit: self.itemsPerPage, offset: offset, queryCondition: self.queryCondition) { (result: Result<[MarvelCharacter]>) in
+        self.request = self.dataProvider.getEntityList(of: self.entityType, limit: self.itemsPerPage, offset: offset, queryCondition: self.queryCondition) { (result: Result<[Entity]>) in
             self.isRetrieving = false;
             defer {
                 if let _completion = completion {
