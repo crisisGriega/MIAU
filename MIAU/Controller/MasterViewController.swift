@@ -51,6 +51,17 @@ class MasterViewController: UIViewController {
         
         self.retrieveData();
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard
+            let destination = segue.destination as? DetailViewController,
+            let selectedIndexPath = self.tableView.indexPathForSelectedRow else
+        {
+            return;
+        }
+        
+        destination.entity = self.viewModel.itemFor(selectedIndexPath);
+    }
 }
 
 
@@ -71,11 +82,15 @@ extension MasterViewController: UITableViewDataSource {
 
 // MARK: UITableView Delegate
 extension MasterViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showDetail", sender: nil);
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard
             let theme = Theme.currentTheme,
-            let titleFont = theme.textFont(for: TextStyle.cellTitle.rawValue),
-            let subtitleFont = theme.textFont(for: TextStyle.cellSubtitle.rawValue)  else
+            let titleFont = theme.textFont(for: TextStyle.title.rawValue),
+            let subtitleFont = theme.textFont(for: TextStyle.subtitle.rawValue)  else
         {
             return self.tableView(tableView, estimatedHeightForRowAt: indexPath);
         }

@@ -16,8 +16,8 @@ import UIKit
  Rename so styles are not linked to a color directly
  */
 enum TextStyle: String {
-    case cellTitle;
-    case cellSubtitle;
+    case title;
+    case subtitle;
 }
 
 enum ColorPalette: Int, EnumColorable {
@@ -52,9 +52,9 @@ class MainTheme: Themeable {
         }
         
         switch styleCase {
-            case .cellTitle:
+            case .title:
                 label.textColor = ColorPalette.white.colorValue();
-            case .cellSubtitle:
+            case .subtitle:
                 label.textColor = ColorPalette.white.colorValue();
         }
         
@@ -69,9 +69,9 @@ class MainTheme: Themeable {
         }
         
         switch styleCase {
-            case .cellTitle:
+            case .title:
                 return self.boldMarvelFont(with: 22);
-            case .cellSubtitle:
+            case .subtitle:
                 return UIFont.systemFont(ofSize: 12);
         }
     }
@@ -97,12 +97,12 @@ class MainTheme: Themeable {
         var textColor: UIColor?;
         
         switch styleCase {
-            case .cellTitle:
+            case .title:
                 paragraphStyle.lineSpacing = 0;
                 uppercase = true;
                 textColor = ColorPalette.white.colorValue();
             
-            case .cellSubtitle:
+            case .subtitle:
                 paragraphStyle.lineSpacing = 0;
                 uppercase = false;
                 textColor = ColorPalette.white.colorValue();

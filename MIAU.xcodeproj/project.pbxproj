@@ -12,6 +12,8 @@
 		565539FF1FF7DB3200380F31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 565539FE1FF7DB3200380F31 /* Assets.xcassets */; };
 		56553A091FF7FFC800380F31 /* DataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56553A081FF7FFC800380F31 /* DataProviderTests.swift */; };
 		56553A0B1FF8DBB100380F31 /* MarvelEntityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56553A0A1FF8DBB100380F31 /* MarvelEntityListViewModel.swift */; };
+		56553A0D1FF8E45700380F31 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56553A0C1FF8E45700380F31 /* DetailViewController.swift */; };
+		56553A101FF930FB00380F31 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56553A0F1FF930FB00380F31 /* CharacterDetailView.swift */; };
 		567149191FF018CB00811866 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567149181FF018CB00811866 /* AppDelegate.swift */; };
 		5671491E1FF018CB00811866 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5671491C1FF018CB00811866 /* Main.storyboard */; };
 		567149231FF018CB00811866 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567149211FF018CB00811866 /* LaunchScreen.storyboard */; };
@@ -78,6 +80,8 @@
 		565539FE1FF7DB3200380F31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56553A081FF7FFC800380F31 /* DataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderTests.swift; sourceTree = "<group>"; };
 		56553A0A1FF8DBB100380F31 /* MarvelEntityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelEntityListViewModel.swift; sourceTree = "<group>"; };
+		56553A0C1FF8E45700380F31 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		56553A0F1FF930FB00380F31 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 		567149151FF018CB00811866 /* MIAU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MIAU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		567149181FF018CB00811866 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5671491D1FF018CB00811866 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -149,6 +153,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56553A0E1FF930E400380F31 /* DetailViews */ = {
+			isa = PBXGroup;
+			children = (
+				56553A0F1FF930FB00380F31 /* CharacterDetailView.swift */,
+			);
+			path = DetailViews;
+			sourceTree = "<group>";
+		};
 		5671490C1FF018CB00811866 = {
 			isa = PBXGroup;
 			children = (
@@ -303,8 +315,9 @@
 		56F301F51FF3F02F00584929 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				56F301F61FF3F05D00584929 /* MasterViewController.swift */,
 				56F302041FF4024500584929 /* CustomSplitViewController.swift */,
+				56F301F61FF3F05D00584929 /* MasterViewController.swift */,
+				56553A0C1FF8E45700380F31 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -323,6 +336,7 @@
 		56F301FF1FF3FE3500584929 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				56553A0E1FF930E400380F31 /* DetailViews */,
 				56F302061FF40B7500584929 /* EntityTableViewCell.swift */,
 				56F3020A1FF4335F00584929 /* EntityTableViewCell.xib */,
 			);
@@ -585,6 +599,7 @@
 				567149321FF0275C00811866 /* MarvelEntityRepresentable.swift in Sources */,
 				56F301F71FF3F05D00584929 /* MasterViewController.swift in Sources */,
 				56F301F91FF3F14600584929 /* UITableViewCell+reuseIdentifier.swift in Sources */,
+				56553A101FF930FB00380F31 /* CharacterDetailView.swift in Sources */,
 				564721441FF238CD0090EDAB /* MarvelComic.swift in Sources */,
 				5671493D1FF03C4700811866 /* String+MD5.swift in Sources */,
 				567149191FF018CB00811866 /* AppDelegate.swift in Sources */,
@@ -611,6 +626,7 @@
 				56F301FE1FF3F9F200584929 /* MasterViewModel.swift in Sources */,
 				56917C3D1FF1BD060036EEAD /* MarvelCharacterListItem.swift in Sources */,
 				56917C3F1FF1BD7D0036EEAD /* MarvelComicListItem.swift in Sources */,
+				56553A0D1FF8E45700380F31 /* DetailViewController.swift in Sources */,
 				567149361FF02E3B00811866 /* MarvelImageSize.swift in Sources */,
 				56F301F01FF2F3D200584929 /* MarvelEvent.swift in Sources */,
 				567149341FF02B9300811866 /* MarvelEntityType.swift in Sources */,
