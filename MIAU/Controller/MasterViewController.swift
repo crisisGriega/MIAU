@@ -120,6 +120,10 @@ extension MasterViewController: UITableViewDelegate {
         guard section == 0 else { return nil; }
         return self.picker;
     }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil;
+    }
 }
 
 
