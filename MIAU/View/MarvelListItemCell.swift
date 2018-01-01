@@ -24,6 +24,10 @@ class MarvelListItemCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.applyStyles();
+    }
+    
+    func applyStyles() {
         if let theme = Theme.currentTheme {
             self.backgroundColor = theme.color(for: "tertiary");
             self.textLabel?.style = "title";

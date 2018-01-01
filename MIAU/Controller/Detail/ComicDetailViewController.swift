@@ -8,8 +8,29 @@
 
 import UIKit
 
-class ComicDetailViewController: UIViewController {
+class ComicDetailViewController: EntityDetailViewController {
 
+    let viewModel: ComicDetailViewModel = ComicDetailViewModel();
+    override var entityDetailViewModel: EntityDetailViewModel {
+        get {
+            return self.viewModel as EntityDetailViewModel;
+        }
+        set {
+            
+        }
+    }
+    
+    var comic: MarvelComic? {
+        get {
+            return self.viewModel.entity as? MarvelComic;
+        }
+        set {
+            self.viewModel.entity = newValue;
+        }
+    }
+    
+    
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,16 +41,4 @@ class ComicDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

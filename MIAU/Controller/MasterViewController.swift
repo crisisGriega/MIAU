@@ -88,7 +88,7 @@ class MasterViewController: UIViewController {
                 // TODO: assign serie
             case .storiesDetail:
                 guard let destination = segue.destination as? StoryDetailViewController else { return; }
-                // TODO: assign story
+                destination.story = self.viewModel.itemFor(selectedIndexPath) as? MarvelStory;
         }
     }
 }
@@ -112,7 +112,8 @@ extension MasterViewController: UITableViewDataSource {
 // MARK: UITableView Delegate
 extension MasterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: SegueId.charactersDetail.rawValue, sender: nil);
+        let segueIdentifier: String = "show-\(self.viewModel.selectedType)-detail";
+        self.performSegue(withIdentifier: segueIdentifier, sender: nil);
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

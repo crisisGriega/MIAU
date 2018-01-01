@@ -6,7 +6,7 @@
 //  Copyright © 2017 crisisGriega. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 
 class CharacterDetailViewModel: EntityDetailViewModel {

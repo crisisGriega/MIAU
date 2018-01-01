@@ -58,6 +58,10 @@ class MasterViewModel {
         }
     }
     
+    var selectedType: MarvelEntityType {
+        return self.currentViewModel.entityType;
+    }
+    
     // List
     var numberOfItems: Int {
         return self.currentViewModel.numberOfItems
