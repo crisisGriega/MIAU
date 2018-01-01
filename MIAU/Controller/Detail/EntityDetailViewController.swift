@@ -33,7 +33,9 @@ class EntityDetailViewController: UIViewController {
         
         self.styleUIElements();
         self.updateUIElements();
+        
         self.tableView.dataSource = self;
+        self.tableView.register(MarvelListItemCell.self, forCellReuseIdentifier: MarvelListItemCell.reuseIdentifier);
     }
     
     override func viewDidLayoutSubviews() {

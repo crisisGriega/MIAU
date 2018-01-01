@@ -223,6 +223,9 @@
                                             <state key="normal" title="Detail">
                                                 <color key="titleColor" red="0.31764705879999999" green="0.54901960780000003" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="onDetailTapped:" destination="wIM-Qx-D8D" eventType="touchUpInside" id="A2Q-e5-jhG"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -251,10 +254,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kqd-E2-WQK"/>
                     </view>
+                    <connections>
+                        <outlet property="btDetail" destination="CQ7-lQ-etM" id="BfT-AU-r10"/>
+                        <outlet property="headerView" destination="CsU-zE-nGg" id="e8L-yS-q2v"/>
+                        <outlet property="imageView" destination="2fx-y8-3am" id="q8P-TJ-axw"/>
+                        <outlet property="lbDate" destination="2Ho-5v-zSj" id="caP-2E-utY"/>
+                        <outlet property="lbDescription" destination="peP-aA-Bw2" id="TVt-k2-SGC"/>
+                        <outlet property="lbPages" destination="5Re-aq-PYJ" id="KYL-IT-Yjv"/>
+                        <outlet property="lbPrice" destination="4aI-52-dUC" id="Vmi-IL-mi7"/>
+                        <outlet property="lbTitle" destination="ps7-pM-JOw" id="f8S-RJ-uTb"/>
+                        <outlet property="tableView" destination="9PV-vu-7Zh" id="sco-9h-t4s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w69-m0-CRs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="858" y="1576"/>
+            <point key="canvasLocation" x="857" y="1580"/>
         </scene>
         <!--Creator Detail View Controller-->
         <scene sceneID="sJJ-4r-z2g">

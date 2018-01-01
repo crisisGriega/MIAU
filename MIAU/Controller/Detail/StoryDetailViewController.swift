@@ -36,7 +36,6 @@ class StoryDetailViewController: EntityDetailViewController {
     override func viewDidLoad() {
         super.viewDidLoad();
         self.tableView.delegate = self;
-        self.tableView.register(MarvelListItemCell.self, forCellReuseIdentifier: MarvelListItemCell.reuseIdentifier);
     }
     
     

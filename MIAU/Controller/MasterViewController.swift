@@ -76,7 +76,7 @@ class MasterViewController: UIViewController {
                 destination.character = self.viewModel.itemFor(selectedIndexPath) as? MarvelCharacter;
             case .comicsDetail:
                 guard let destination = segue.destination as? ComicDetailViewController else { return; }
-                // TODO: assign comic
+                destination.comic = self.viewModel.itemFor(selectedIndexPath) as? MarvelComic;
             case .creatorsDetail:
                 guard let destination = segue.destination as? CreatorDetailViewController else { return; }
                 // TODO: assign creator
