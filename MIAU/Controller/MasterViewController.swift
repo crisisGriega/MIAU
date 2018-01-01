@@ -82,7 +82,7 @@ class MasterViewController: UIViewController {
                 destination.creator = self.viewModel.itemFor(selectedIndexPath) as? MarvelCreator;
             case .eventsDetail:
                 guard let destination = segue.destination as? EventDetailViewController else { return; }
-                // TODO: assign event
+                destination.event = self.viewModel.itemFor(selectedIndexPath) as? MarvelEvent;
             case .seriesDetail:
                 guard let destination = segue.destination as? SerieDetailViewController else { return; }
                 // TODO: assign serie

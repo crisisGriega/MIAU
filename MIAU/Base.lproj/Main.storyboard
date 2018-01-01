@@ -400,8 +400,8 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="style" value="subtitle"/>
                                             </userDefinedRuntimeAttributes>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QTy-nM-wp0">
-                                            <rect key="frame" x="123" y="330" width="129" height="30"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QTy-nM-wp0">
+                                            <rect key="frame" x="109.5" y="330" width="156" height="30"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Oe-E4-Cj0">
                                                     <rect key="frame" x="0.0" y="0.0" width="73" height="30"/>
@@ -410,7 +410,7 @@
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lux-Mz-Ywj">
-                                                    <rect key="frame" x="83" y="0.0" width="46" height="30"/>
+                                                    <rect key="frame" x="83" y="0.0" width="73" height="30"/>
                                                     <state key="normal" title="Next &gt;">
                                                         <color key="titleColor" red="0.31764705882352939" green="0.5490196078431373" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
@@ -426,6 +426,7 @@
                                                         <color key="titleColor" red="0.31764705879999999" green="0.54901960780000003" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
+                                                        <action selector="moreInfoButtonTapped:" destination="iIT-sU-OOC" eventType="touchUpInside" id="A9N-rx-bU9"/>
                                                         <action selector="moreInfoButtonTapped:" destination="97B-EK-VLI" eventType="touchUpInside" id="SSE-zN-PqJ"/>
                                                     </connections>
                                                 </button>
@@ -435,6 +436,7 @@
                                                         <color key="titleColor" red="0.31764705879999999" green="0.54901960780000003" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
+                                                        <action selector="moreInfoButtonTapped:" destination="iIT-sU-OOC" eventType="touchUpInside" id="1WZ-dS-gPP"/>
                                                         <action selector="moreInfoButtonTapped:" destination="97B-EK-VLI" eventType="touchUpInside" id="Gvp-aR-aRH"/>
                                                     </connections>
                                                 </button>
@@ -469,6 +471,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0LV-Bb-ePX"/>
                     </view>
+                    <connections>
+                        <outlet property="btDetail" destination="ZdC-b0-G2u" id="RY4-Ag-RlV"/>
+                        <outlet property="btNext" destination="lux-Mz-Ywj" id="CTO-cl-X40"/>
+                        <outlet property="btPrevious" destination="6Oe-E4-Cj0" id="naU-L8-ita"/>
+                        <outlet property="btWiki" destination="DXv-pa-GYq" id="oIO-re-mx1"/>
+                        <outlet property="headerView" destination="57Q-uy-nUb" id="Q1M-jQ-UEH"/>
+                        <outlet property="imageView" destination="sbU-DF-E3L" id="PBX-h6-Zii"/>
+                        <outlet property="lbDescription" destination="c8Z-TA-YOy" id="2eb-vI-zgX"/>
+                        <outlet property="lbPeriod" destination="bVR-QF-haU" id="Nm3-ov-et7"/>
+                        <outlet property="lbTitle" destination="X6X-TE-WZQ" id="XtQ-EV-vlg"/>
+                        <outlet property="tableView" destination="bcf-Z8-TyX" id="0yW-HH-WCP"/>
+                        <outlet property="urlStackView" destination="kXS-1t-j4b" id="8qG-yC-Mds"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTU-vG-bSU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
