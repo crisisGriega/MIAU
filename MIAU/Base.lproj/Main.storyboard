@@ -235,6 +235,7 @@
                                         <constraint firstItem="ps7-pM-JOw" firstAttribute="centerX" secondItem="CsU-zE-nGg" secondAttribute="centerX" id="8yh-Yx-919"/>
                                         <constraint firstItem="peP-aA-Bw2" firstAttribute="top" secondItem="2fx-y8-3am" secondAttribute="bottom" constant="10" id="B0x-h7-hvO"/>
                                         <constraint firstItem="peP-aA-Bw2" firstAttribute="leading" secondItem="CsU-zE-nGg" secondAttribute="leading" constant="10" id="FDV-c3-psK"/>
+                                        <constraint firstItem="CQ7-lQ-etM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CsU-zE-nGg" secondAttribute="leading" constant="20" symbolic="YES" id="VRR-gT-UDR"/>
                                         <constraint firstAttribute="trailing" secondItem="CQ7-lQ-etM" secondAttribute="trailing" constant="10" id="dMG-yk-hvC"/>
                                         <constraint firstItem="2fx-y8-3am" firstAttribute="top" secondItem="ps7-pM-JOw" secondAttribute="bottom" constant="10" id="ear-fy-WxQ"/>
                                         <constraint firstItem="CQ7-lQ-etM" firstAttribute="top" secondItem="ckG-0m-KXl" secondAttribute="bottom" constant="10" id="gvO-e5-ngL"/>
@@ -651,6 +652,7 @@
                                         <constraint firstItem="g84-du-KNz" firstAttribute="top" secondItem="scX-lh-jfr" secondAttribute="bottom" constant="10" id="NEN-Sx-AoL"/>
                                         <constraint firstAttribute="trailing" secondItem="scX-lh-jfr" secondAttribute="trailing" constant="10" id="PXC-A6-tZT"/>
                                         <constraint firstItem="g84-du-KNz" firstAttribute="leading" secondItem="OKe-bZ-UsD" secondAttribute="leading" constant="10" id="RDq-dt-69E"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="g84-du-KNz" secondAttribute="trailing" constant="20" symbolic="YES" id="VXZ-jx-hqY"/>
                                         <constraint firstItem="8T6-RY-cK8" firstAttribute="centerX" secondItem="OKe-bZ-UsD" secondAttribute="centerX" id="Wsa-BX-xcO"/>
                                         <constraint firstItem="scX-lh-jfr" firstAttribute="leading" secondItem="OKe-bZ-UsD" secondAttribute="leading" constant="10" id="ywR-yV-cxY"/>
                                     </constraints>
