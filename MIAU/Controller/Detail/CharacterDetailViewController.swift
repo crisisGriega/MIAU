@@ -120,6 +120,7 @@ private extension CharacterDetailViewController {
             
             self.headerView.backgroundColor = theme.color(for: "secondary") ?? .black;
             self.tableView.backgroundColor = theme.color(for: "secondary") ?? .black;
+            self.view.backgroundColor = theme.color(for: "secondary") ?? .black;
         }
     }
     

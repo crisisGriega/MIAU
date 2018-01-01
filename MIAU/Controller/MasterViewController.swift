@@ -13,6 +13,11 @@ import DSGradientProgressView
 
 enum SegueId: String {
     case charactersDetail = "show-characters-detail";
+    case comicsDetail = "show-comics-detail";
+    case creatorsDetail = "show-creators-detail";
+    case eventsDetail = "show-events-detail";
+    case seriesDetail = "show-series-detail";
+    case storiesDetail = "show-stories-detail";
 }
 
 class MasterViewController: UIViewController {
@@ -69,6 +74,21 @@ class MasterViewController: UIViewController {
             case .charactersDetail:
                 guard let destination = segue.destination as? CharacterDetailViewController else { return; }
                 destination.character = self.viewModel.itemFor(selectedIndexPath) as? MarvelCharacter;
+            case .comicsDetail:
+                guard let destination = segue.destination as? ComicDetailViewController else { return; }
+                // TODO: assign comic
+            case .creatorsDetail:
+                guard let destination = segue.destination as? CreatorDetailViewController else { return; }
+                // TODO: assign creator
+            case .eventsDetail:
+                guard let destination = segue.destination as? EventDetailViewController else { return; }
+                // TODO: assign event
+            case .seriesDetail:
+                guard let destination = segue.destination as? SerieDetailViewController else { return; }
+                // TODO: assign serie
+            case .storiesDetail:
+                guard let destination = segue.destination as? StoryDetailViewController else { return; }
+                // TODO: assign story
         }
     }
 }

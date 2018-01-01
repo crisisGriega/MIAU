@@ -11,21 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Detail View Controller-->
-        <scene sceneID="wuj-zE-BDR">
-            <objects>
-                <viewController id="KIu-gQ-ozT" customClass="DetailViewController" customModule="MIAU" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nPi-lR-g0w">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="VuP-bc-mNa"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hhR-F9-9ms" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="204" y="1578"/>
-        </scene>
         <!--Character Detail View Controller-->
         <scene sceneID="poX-Vl-Plx">
             <objects>
@@ -161,7 +146,82 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wvp-p1-rpP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1005.6" y="1576.4617691154424"/>
+            <point key="canvasLocation" x="204" y="1576"/>
+        </scene>
+        <!--Comic Detail View Controller-->
+        <scene sceneID="vXW-ZF-aBZ">
+            <objects>
+                <viewController id="wIM-Qx-D8D" customClass="ComicDetailViewController" customModule="MIAU" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P61-QT-8xB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="kqd-E2-WQK"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w69-m0-CRs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="858" y="1576"/>
+        </scene>
+        <!--Creator Detail View Controller-->
+        <scene sceneID="sJJ-4r-z2g">
+            <objects>
+                <viewController id="iNf-qG-2PC" customClass="CreatorDetailViewController" customModule="MIAU" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o5X-Kb-j9j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bRO-Wl-XoV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xdG-IQ-dNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1521" y="1581"/>
+        </scene>
+        <!--Event Detail View Controller-->
+        <scene sceneID="Yb5-Qf-lcn">
+            <objects>
+                <viewController id="iIT-sU-OOC" customClass="EventDetailViewController" customModule="MIAU" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1x2-WV-Sqa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="0LV-Bb-ePX"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GTU-vG-bSU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2185" y="1581"/>
+        </scene>
+        <!--Serie Detail View Controller-->
+        <scene sceneID="7cO-ZF-oeL">
+            <objects>
+                <viewController id="YOv-Pl-EA3" customClass="SerieDetailViewController" customModule="MIAU" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6jc-5M-737">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="CZw-Vs-Wbe"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rcv-ym-Ij2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2839" y="1581"/>
+        </scene>
+        <!--Story Detail View Controller-->
+        <scene sceneID="HLP-8c-IM5">
+            <objects>
+                <viewController id="mO2-hV-VpZ" customClass="StoryDetailViewController" customModule="MIAU" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Mm-ka-V3H">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="cQK-js-CNv"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ymb-jz-369" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3511" y="1581"/>
         </scene>
         <!--Master View Controller-->
         <scene sceneID="apv-rV-hF4">
@@ -220,8 +280,12 @@
                     <connections>
                         <outlet property="progressView" destination="ghw-Z6-HYa" id="IJw-Q0-LQO"/>
                         <outlet property="tableView" destination="djG-Q9-gUd" id="eav-dg-eRH"/>
-                        <segue destination="KIu-gQ-ozT" kind="showDetail" identifier="showDetail" id="Btn-FD-CXe"/>
                         <segue destination="97B-EK-VLI" kind="showDetail" identifier="show-characters-detail" id="PID-p4-Hve"/>
+                        <segue destination="wIM-Qx-D8D" kind="showDetail" identifier="show-comics-detail" id="YhG-AS-y2h"/>
+                        <segue destination="iNf-qG-2PC" kind="showDetail" identifier="show-creators-detail" id="sSF-lr-dkX"/>
+                        <segue destination="iIT-sU-OOC" kind="showDetail" identifier="show-events-detail" id="FaM-M7-MhJ"/>
+                        <segue destination="YOv-Pl-EA3" kind="showDetail" identifier="show-series-detail" id="oyY-DP-5hY"/>
+                        <segue destination="mO2-hV-VpZ" kind="showDetail" identifier="show-stories-detail" id="bP1-fB-hXH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L7p-bY-8AK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -250,7 +314,7 @@
                 <splitViewController id="NNu-LR-sM0" customClass="CustomSplitViewController" customModule="MIAU" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="1X3-Sz-url" kind="relationship" relationship="masterViewController" id="hQV-BE-FON"/>
-                        <segue destination="KIu-gQ-ozT" kind="relationship" relationship="detailViewController" id="fZj-5B-lnc"/>
+                        <segue destination="97B-EK-VLI" kind="relationship" relationship="detailViewController" id="9g3-Vy-eFk"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EhT-IE-cd1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -262,6 +326,6 @@
         <image name="marvel-logo" width="248" height="90"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Btn-FD-CXe"/>
+        <segue reference="PID-p4-Hve"/>
     </inferredMetricsTieBreakers>
 </document>
