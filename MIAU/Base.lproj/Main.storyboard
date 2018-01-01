@@ -308,8 +308,8 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="style" value="subtitle"/>
                                             </userDefinedRuntimeAttributes>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVb-H4-HO4">
-                                            <rect key="frame" x="322" y="331" width="40" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVb-H4-HO4">
+                                            <rect key="frame" x="325" y="331" width="40" height="30"/>
                                             <state key="normal" title="Detail">
                                                 <color key="titleColor" red="0.31764705879999999" green="0.54901960780000003" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
@@ -318,8 +318,9 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="fGP-dO-fla" firstAttribute="top" secondItem="t53-xa-7n0" secondAttribute="bottom" constant="10" id="Bfw-fV-Y8N"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OVb-H4-HO4" secondAttribute="trailing" id="D6s-Lo-oHd"/>
+                                        <constraint firstAttribute="trailing" secondItem="OVb-H4-HO4" secondAttribute="trailing" constant="10" id="D6s-Lo-oHd"/>
                                         <constraint firstItem="IxD-Il-a7c" firstAttribute="leading" secondItem="N7t-pM-KAg" secondAttribute="leading" constant="10" id="E3P-wS-98G"/>
+                                        <constraint firstItem="OVb-H4-HO4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="N7t-pM-KAg" secondAttribute="leading" constant="20" symbolic="YES" id="G9P-aW-aiy"/>
                                         <constraint firstItem="IxD-Il-a7c" firstAttribute="top" secondItem="fGP-dO-fla" secondAttribute="bottom" constant="10" id="HCb-Ku-mX4"/>
                                         <constraint firstItem="OVb-H4-HO4" firstAttribute="top" secondItem="IxD-Il-a7c" secondAttribute="bottom" constant="10" id="JQq-xF-60s"/>
                                         <constraint firstItem="t53-xa-7n0" firstAttribute="top" secondItem="N7t-pM-KAg" secondAttribute="top" constant="10" id="JX1-0M-mgc"/>
@@ -339,6 +340,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bRO-Wl-XoV"/>
                     </view>
+                    <connections>
+                        <outlet property="btDetail" destination="OVb-H4-HO4" id="ODF-mx-9nf"/>
+                        <outlet property="headerView" destination="N7t-pM-KAg" id="bVq-io-JbW"/>
+                        <outlet property="imageView" destination="fGP-dO-fla" id="OMh-BQ-RKs"/>
+                        <outlet property="lbDescription" destination="IxD-Il-a7c" id="rbh-PI-OGE"/>
+                        <outlet property="lbName" destination="t53-xa-7n0" id="zqD-b7-WXk"/>
+                        <outlet property="tableView" destination="rJD-l8-mNW" id="CJz-Jn-3P4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xdG-IQ-dNW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

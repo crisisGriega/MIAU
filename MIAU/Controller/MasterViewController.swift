@@ -79,7 +79,7 @@ class MasterViewController: UIViewController {
                 destination.comic = self.viewModel.itemFor(selectedIndexPath) as? MarvelComic;
             case .creatorsDetail:
                 guard let destination = segue.destination as? CreatorDetailViewController else { return; }
-                // TODO: assign creator
+                destination.creator = self.viewModel.itemFor(selectedIndexPath) as? MarvelCreator;
             case .eventsDetail:
                 guard let destination = segue.destination as? EventDetailViewController else { return; }
                 // TODO: assign event
