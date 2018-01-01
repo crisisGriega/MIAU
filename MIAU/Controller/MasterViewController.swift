@@ -11,6 +11,10 @@ import AKPickerView_Swift
 import DSGradientProgressView
 
 
+enum SegueId: String {
+    case charactersDetail = "show-characters-detail";
+}
+
 class MasterViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -54,13 +58,18 @@ class MasterViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard
-            let destination = segue.destination as? DetailViewController,
+            let identifier = segue.identifier,
+            let _segueId = SegueId(rawValue: identifier),
             let selectedIndexPath = self.tableView.indexPathForSelectedRow else
         {
-            return;
+                return;
         }
         
-        destination.entity = self.viewModel.itemFor(selectedIndexPath);
+        switch _segueId {
+            case .charactersDetail:
+                guard let destination = segue.destination as? CharacterDetailViewController else { return; }
+                destination.character = self.viewModel.itemFor(selectedIndexPath) as? MarvelCharacter;
+        }
     }
 }
 
@@ -83,7 +92,7 @@ extension MasterViewController: UITableViewDataSource {
 // MARK: UITableView Delegate
 extension MasterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "showDetail", sender: nil);
+        self.performSegue(withIdentifier: SegueId.charactersDetail.rawValue, sender: nil);
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -222,21 +231,21 @@ private extension MasterViewController {
     }
     
     func styleUIElements() {
-        if let theme = Theme.currentTheme {
-            self.navigationController?.navigationBar.barTintColor = theme.color(for: "primary");
-            
-            self.view.backgroundColor = theme.color(for: "secondary");
-            
-            self.tableView.backgroundColor = theme.color(for: "secondary");
-            
-            self.picker.backgroundColor = theme.color(for: "secondary") ?? .black;
-            self.picker.textColor = theme.color(for: "tertiary") ?? .white;
-            self.picker.highlightedTextColor = theme.color(for: "sexary") ?? .red;
-            
-            self.searchController.searchBar.tintColor = theme.color(for: "sexary") ?? .white;
-            
-            self.progressView.backgroundColor = theme.color(for: "secondary") ?? .red;
-            self.progressView.barColor = theme.color(for: "quinary") ?? .red;
-        }
+        guard let theme = Theme.currentTheme else { return; }
+        self.navigationController?.navigationBar.barTintColor = theme.color(for: "primary");
+        self.searchController.searchBar.tintColor = theme.color(for: "sexary") ?? .white;
+        
+        self.view.backgroundColor = theme.color(for: "secondary");
+        
+        self.tableView.backgroundColor = theme.color(for: "secondary");
+        
+        self.picker.backgroundColor = theme.color(for: "secondary") ?? .black;
+        self.picker.textColor = theme.color(for: "tertiary") ?? .white;
+        self.picker.highlightedTextColor = theme.color(for: "sexary") ?? .red;
+        
+        
+        
+        self.progressView.backgroundColor = theme.color(for: "secondary") ?? .red;
+        self.progressView.barColor = theme.color(for: "quinary") ?? .red;
     }
 }

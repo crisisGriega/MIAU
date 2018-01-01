@@ -21,7 +21,7 @@ class MarvelCharacter: MarvelEntityRepresentable, Mappable {
     // MARK: Custom attributes
     var name: String?;
     var comics: [MarvelComicListItem]?;
-    var creators: [MarvelCreator]?;
+    var creators: [MarvelCreatorListItem]?;
     var stories: [MarvelStoryListItem]?;
     var events: [MarvelEventListItem]?;
     var series: [MarvelSerieListItem]?;
