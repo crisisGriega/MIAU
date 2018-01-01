@@ -10,15 +10,15 @@ import UIKit
 
 class CharacterDetailViewController: UIViewController {
     
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var lbName: UILabel!
     @IBOutlet weak var lbDescription: UILabel!
+    @IBOutlet weak var urlStackView: UIStackView!
     @IBOutlet weak var btDetail: UIButton!
     @IBOutlet weak var btWiki: UIButton!
     @IBOutlet weak var btComicLink: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var lcTableViewHeight: NSLayoutConstraint!
     
     let viewModel: CharacterDetailViewModel = CharacterDetailViewModel();
     
@@ -39,6 +39,12 @@ class CharacterDetailViewController: UIViewController {
         self.styleUIElements();
         self.updateUIElements();
         self.tableView.dataSource = self;
+        self.tableView.delegate = self;
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.resizeHeaderToFit()
     }
     
     
@@ -86,15 +92,30 @@ extension CharacterDetailViewController: UITableViewDataSource {
     }
 }
 
+
+// MARK: UITableView Delegate
+extension CharacterDetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO: Open a new page passing the resource URI
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let nameEnd: CGFloat = self.lbName.frame.origin.y + self.lbName.frame.size.height;
+        self.title = scrollView.contentOffset.y > nameEnd ? self.lbName.text : nil;
+    }
+}
+
 // MARK: Private
 private extension CharacterDetailViewController {
     func styleUIElements() {
         if let theme = Theme.currentTheme {
             self.navigationController?.navigationBar.barTintColor = theme.color(for: "primary") ?? .red;
-            self.navigationController?.navigationBar.tintColor = theme.color(for: "sexary") ?? .white;
+            let navTintColor = theme.color(for: "sexary") ?? .white;
+            self.navigationController?.navigationBar.tintColor = navTintColor;
+            self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: navTintColor, .font: theme.textFont(for: "title") ?? UIFont.systemFontSize];
             
-            self.scrollView.backgroundColor = theme.color(for: "secondary") ?? .black;
-            self.view.backgroundColor = theme.color(for: "secondary") ?? .black;
+            self.headerView.backgroundColor = theme.color(for: "secondary") ?? .black;
+            self.tableView.backgroundColor = theme.color(for: "secondary") ?? .black;
         }
     }
     
@@ -107,9 +128,15 @@ private extension CharacterDetailViewController {
         self.btDetail.isHidden = self.viewModel.isDetailHidden;
         self.btWiki.isHidden = self.viewModel.isWikiHidden;
         self.btComicLink.isHidden = self.viewModel.isComicLinkHidden;
+    }
+    
+    func resizeHeaderToFit() {
+        let headerView = self.tableView.tableHeaderView!;
+        var frame = headerView.frame;
+        let stackFrame = self.urlStackView.frame;
+        frame.size.height = stackFrame.origin.y + stackFrame.size.height + 10;
         
-        var size = self.scrollView.contentSize;
-        size.height = self.tableView.frame.origin.y + self.tableView.frame.height;
-        self.scrollView.contentSize = size;
+        headerView.frame = frame;
+        self.tableView.tableHeaderView = headerView;
     }
 }

@@ -17,7 +17,8 @@ class MarvelListItemCell: UITableViewCell {
             return self.viewModel.item;
         }
         set {
-            self.viewModel.item = newValue
+            self.viewModel.item = newValue;
+            self.updateUI();
         }
     }
     
@@ -27,8 +28,10 @@ class MarvelListItemCell: UITableViewCell {
             self.backgroundColor = theme.color(for: "tertiary");
             self.textLabel?.style = "title";
             self.detailTextLabel?.style = "subtitle";
-//            self.textLabel?.textColor = theme.color(for: "sexary");
-//            self.detailTextLabel?.textColor = theme.color(for: "sexary");
+            
+            let backgroundView = UIView();
+            backgroundView.backgroundColor = theme.color(for: "secondary");
+            self.selectedBackgroundView = backgroundView;
         }
     }
 }
