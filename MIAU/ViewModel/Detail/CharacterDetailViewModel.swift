@@ -9,46 +9,20 @@
 import UIKit
 
 
-class CharacterDetailViewModel {
-    var character: MarvelCharacter? {
-        didSet {
-            guard let value = self.character else {
-                self.sections.removeAll();
-                return;
-            }
-            
-            if let comics = value.comics, !comics.isEmpty {
-                self.sections.append(comics);
-            }
-            if let creators = value.creators, !creators.isEmpty {
-                self.sections.append(creators);
-            }
-            if let events = value.events, !events.isEmpty {
-                self.sections.append(events);
-            }
-            if let series = value.series, !series.isEmpty {
-                self.sections.append(series);
-            }
-            if let stories = value.stories, !stories.isEmpty {
-                self.sections.append(stories);
-            }
-        }
-    }
-    
-    private var sections: [[MarvelItemListable]] = [];
+class CharacterDetailViewModel: EntityDetailViewModel {
     
     var imageURL: URL? {
-        return character?.imagePortraitURL;
+        return (self.entity as? MarvelCharacter)?.imagePortraitURL;
     }
     
     var name: String {
-        guard let name = self.character?.name else { return ""; }
+        guard let name = (self.entity as? MarvelCharacter)?.name else { return ""; }
         
         return name;
     }
     
     var description: String {
-        guard let description = self.character?.description, !description.isEmpty else {
+        guard let description = (self.entity as? MarvelCharacter)?.description, !description.isEmpty else {
             return "No info available";
         }
         
@@ -56,45 +30,26 @@ class CharacterDetailViewModel {
     }
     
     var isDetailHidden: Bool {
-        return self.character?.detailURL?.isEmpty ?? true;
+        return (self.entity as? MarvelCharacter)?.detailURL?.isEmpty ?? true;
     }
     
     var detailURL: String? {
-        return self.character?.detailURL;
+        return (self.entity as? MarvelCharacter)?.detailURL;
     }
     
     var isWikiHidden: Bool {
-        return self.character?.wikiURL?.isEmpty ?? true;
+        return (self.entity as? MarvelCharacter)?.wikiURL?.isEmpty ?? true;
     }
     
     var wikiURL: String? {
-        return self.character?.wikiURL;
+        return (self.entity as? MarvelCharacter)?.wikiURL;
     }
     
     var isComicLinkHidden: Bool {
-        return self.character?.comicLink?.isEmpty ?? true;
+        return (self.entity as? MarvelCharacter)?.comicLink?.isEmpty ?? true;
     }
     
     var comicLinkURL: String? {
-        return self.character?.comicLink;
-    }
-    
-    // Feed for tableView
-    var numberOfSections: Int {
-        return self.sections.count;
-    }
-    
-    func numberOfItems(forSection section: Int) -> Int {
-        return self.sections[section].count;
-    }
-    
-    func itemFor(_ indexPath: IndexPath) -> MarvelItemListable {
-        return self.sections[indexPath.section][indexPath.row];
-    }
-    
-    func titleForSection(atIndex index: Int) -> String {
-        guard let first = self.sections[index].first else { return "" }
-        
-        return first.type.rawValue;
+        return (self.entity as? MarvelCharacter)?.comicLink;
     }
 }

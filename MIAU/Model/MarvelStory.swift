@@ -21,11 +21,12 @@ class MarvelStory: MarvelEntityRepresentable, Mappable {
     
     // MARK: Custom attributes
     var title: String?;
-    var characters: [MarvelCharacter]?;
+    var characters: [MarvelCharacterListItem]?;
     var comics: [MarvelComicListItem]?;
     var creators: [MarvelCreatorListItem]?;
     var events: [MarvelEventListItem]?;
     var series: [MarvelSerieListItem]?;
+    var stories: [MarvelStoryListItem]?;
     var originalIssue: MarvelComicListItem?;
     var storyType: StoryType?;
     

@@ -24,10 +24,10 @@ class CharacterDetailViewController: UIViewController {
     
     var character: MarvelCharacter? {
         get {
-            return self.viewModel.character;
+            return self.viewModel.entity as? MarvelCharacter;
         }
         set {
-            self.viewModel.character = newValue;
+            self.viewModel.entity = newValue;
         }
     }
     
@@ -102,6 +102,10 @@ extension CharacterDetailViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let nameEnd: CGFloat = self.lbName.frame.origin.y + self.lbName.frame.size.height;
         self.title = scrollView.contentOffset.y > nameEnd ? self.lbName.text : nil;
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil;
     }
 }
 

@@ -13,6 +13,12 @@ typealias StringDictionary = [String : String];
 protocol MarvelEntityRepresentable: Marvelable {
     var description: String? { get set }
     var thumbnail: String? { get set }
+    var characters: [MarvelCharacterListItem]? { get set }
+    var comics: [MarvelComicListItem]? { get set }
+    var creators: [MarvelCreatorListItem]? { get set }
+    var stories: [MarvelStoryListItem]? { get set }
+    var events: [MarvelEventListItem]? { get set }
+    var series: [MarvelSerieListItem]? { get set }
 }
 
 

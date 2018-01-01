@@ -20,11 +20,12 @@ class MarvelCharacter: MarvelEntityRepresentable, Mappable {
     
     // MARK: Custom attributes
     var name: String?;
+    var characters: [MarvelCharacterListItem]?;
     var comics: [MarvelComicListItem]?;
     var creators: [MarvelCreatorListItem]?;
-    var stories: [MarvelStoryListItem]?;
     var events: [MarvelEventListItem]?;
     var series: [MarvelSerieListItem]?;
+    var stories: [MarvelStoryListItem]?;
     var detailURL: String?;
     var wikiURL: String?;
     var comicLink: String?;

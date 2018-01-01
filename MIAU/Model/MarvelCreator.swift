@@ -37,11 +37,12 @@ class MarvelCreator: MarvelEntityRepresentable, Mappable {
         
         return _fullName;
     }
-    var characters: [MarvelCharacter]?;
+    var characters: [MarvelCharacterListItem]?;
     var comics: [MarvelComicListItem]?;
-    var stories: [MarvelStoryListItem]?;
+    var creators: [MarvelCreatorListItem]?;
     var events: [MarvelEventListItem]?;
     var series: [MarvelSerieListItem]?;
+    var stories: [MarvelStoryListItem]?;
     var detailURL: String?;
     
     

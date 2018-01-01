@@ -32,10 +32,11 @@ class MarvelComic: MarvelEntityRepresentable, Mappable {
     var date: Date?;
     var price: Float?;
     var characters: [MarvelCharacterListItem]?;
-    var creators: [MarvelCreator]?;
-    var stories: [MarvelStoryListItem]?;
+    var comics: [MarvelComicListItem]?;
+    var creators: [MarvelCreatorListItem]?;
     var events: [MarvelEventListItem]?;
     var series: [MarvelSerieListItem]?;
+    var stories: [MarvelStoryListItem]?;
     
     
     // MARK: Mappable
