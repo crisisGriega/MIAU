@@ -79,5 +79,20 @@ class MarvelComic: MarvelEntityRepresentable, Mappable {
         self.events <- map["events.items"];
         self.series <- map["series.items"];
         self.stories <- map["stories.items"];
+        let dateFormatter = DateFormatter(withFormat: "yyyy-MM-dd'T'HH:mm:ssZZZZZ", locale: "en_US_POSIX")
+        self.date <- (map["dates"], TransformOf<Date, [StringDictionary]>(fromJSON: { (dict) -> Date? in
+            let filtered = dict?.filter({ (entry) -> Bool in
+                return entry["type"] == "focDate";
+            })
+            guard let first = filtered?.first, let value = first["date"] else { return nil; }
+            
+            return dateFormatter.date(from: value);
+            
+        }, toJSON: { (value) -> [StringDictionary]? in
+            if let _value = value {
+                return [["type" : "focDate", "date" : dateFormatter.string(from: _value)]];
+            }
+            return nil;
+        }));
     }
 }

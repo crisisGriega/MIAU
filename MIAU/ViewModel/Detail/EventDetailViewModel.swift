@@ -63,7 +63,7 @@ class EventDetailViewModel: EntityDetailViewModel {
             value += "-";
         }
         value += " / ";
-        if let end = (self.entity as? MarvelEvent)?.start {
+        if let end = (self.entity as? MarvelEvent)?.end {
             let endString = self.dateFormatter.string(from: end);
             value += endString;
         }

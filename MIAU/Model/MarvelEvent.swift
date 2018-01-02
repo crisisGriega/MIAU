@@ -59,8 +59,18 @@ class MarvelEvent: MarvelEntityRepresentable, Mappable {
         self.creators <- map["creators.items"];
         self.series <- map["series.items"];
         self.stories <- map["stories.items"];
-        self.start <- (map["start"], DateTransform());
-        self.end <- (map["end"], DateTransform());
+        
+        let dateFormatter = DateFormatter(withFormat: "yyyy-MM-dd HH:mm:ss", locale: "en_US");
+        let UTCTransform = TransformOf<Date, String>(fromJSON: { (value) -> Date? in
+            guard let _value = value else { return nil; }
+            return dateFormatter.date(from: _value);
+        }, toJSON: { (value) -> String? in
+            guard let _value = value else { return nil; }
+            return dateFormatter.string(from: _value);
+        })
+        self.start <- (map["start"], UTCTransform);
+        self.end <- (map["end"], UTCTransform);
+        
         self.previous <- map["previous"];
         self.next <- map["next"];
         self.detailURL <- (map["urls"], TransformOf<String, [StringDictionary]>(fromJSON: { (dict) -> String? in

@@ -70,6 +70,10 @@ class MasterViewController: UIViewController {
                 return;
         }
         
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            self.tableView.deselectRow(at: selectedIndexPath, animated: false);
+        }
+        
         switch _segueId {
             case .charactersDetail:
                 guard let destination = segue.destination as? CharacterDetailViewController else { return; }
@@ -85,7 +89,7 @@ class MasterViewController: UIViewController {
                 destination.event = self.viewModel.itemFor(selectedIndexPath) as? MarvelEvent;
             case .seriesDetail:
                 guard let destination = segue.destination as? SerieDetailViewController else { return; }
-                // TODO: assign serie
+                destination.serie = self.viewModel.itemFor(selectedIndexPath) as? MarvelSerie;
             case .storiesDetail:
                 guard let destination = segue.destination as? StoryDetailViewController else { return; }
                 destination.story = self.viewModel.itemFor(selectedIndexPath) as? MarvelStory;
