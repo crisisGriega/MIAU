@@ -14,6 +14,7 @@ class EntityDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!;
     @IBOutlet weak var headerView: UIView!;
+    @IBOutlet weak var btClose: UIButton!;
     
     var resourceURI: String?;
     
@@ -39,6 +40,10 @@ class EntityDetailViewController: UIViewController {
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
         self.tableView.register(MarvelListItemCell.self, forCellReuseIdentifier: MarvelListItemCell.reuseIdentifier);
+        
+        
+        self.btClose.isHidden = !(UIDevice.current.userInterfaceIdiom == .pad && self.resourceURI != nil);
+        self.btClose.addTarget(self, action: #selector(EntityDetailViewController.onCloseTapped(sender:)), for: .touchUpInside);
     }
     
     override func viewDidLayoutSubviews() {
@@ -52,6 +57,12 @@ class EntityDetailViewController: UIViewController {
     
     func updateUIElements() {
         fatalError("This function should be overridden");
+    }
+    
+    
+    // MARK: Actions
+    @objc func onCloseTapped(sender: UIButton) {
+        self.dismiss(animated: true, completion: nil);
     }
 }
 
@@ -86,7 +97,7 @@ extension EntityDetailViewController : UITableViewDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil);
         
         let item = self.entityDetailViewModel.itemFor(indexPath);
-        if UIDevice.current.userInterfaceIdiom == .phone, let selectedIndexPath = self.tableView.indexPathForSelectedRow {
+        if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
             self.tableView.deselectRow(at: selectedIndexPath, animated: false);
         }
         let id: String;
@@ -108,7 +119,12 @@ extension EntityDetailViewController : UITableViewDelegate {
         
         let viewController: UIViewController = storyboard.instantiateViewController(withIdentifier: id);
         (viewController as? EntityDetailViewController)?.resourceURI = item.resourceURI;
-        self.navigationController?.show(viewController, sender: nil);
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            // TODO: Shouldn't be opened in a new window
+            viewController.modalPresentationStyle = .formSheet
+        }
+        
+        self.present(viewController, animated: true, completion: nil);
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
