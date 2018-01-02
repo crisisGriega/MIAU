@@ -9,12 +9,6 @@
 import UIKit
 
 
-/* TODO: Refactor:
- Group TextStyle and ButtonStyle under the same Enum
- Change ColorPalette to ColorPalette
- Create a new ColorPalette: String Enum so we can ask the Theme about a color based on a String and it will return UIColor
- Rename so styles are not linked to a color directly
- */
 enum TextStyle: String {
     case title;
     case subtitle;

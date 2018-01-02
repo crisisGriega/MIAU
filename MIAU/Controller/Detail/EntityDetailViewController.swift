@@ -120,11 +120,13 @@ extension EntityDetailViewController : UITableViewDelegate {
         let viewController: UIViewController = storyboard.instantiateViewController(withIdentifier: id);
         (viewController as? EntityDetailViewController)?.resourceURI = item.resourceURI;
         if UIDevice.current.userInterfaceIdiom == .pad {
-            // TODO: Shouldn't be opened in a new window
+            // TODO: Shouldn't be opened in a new window if there is already a form opened
             viewController.modalPresentationStyle = .formSheet
+            self.present(viewController, animated: true, completion: nil);
         }
-        
-        self.present(viewController, animated: true, completion: nil);
+        else {
+            self.navigationController?.pushViewController(viewController, animated: true);
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
