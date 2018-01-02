@@ -64,6 +64,41 @@ class EntityDetailViewController: UIViewController {
     @objc func onCloseTapped(sender: UIButton) {
         self.dismiss(animated: true, completion: nil);
     }
+    
+    
+    // MARK: Utils
+    func presentEntityViewController(for type: MarvelEntityType, withResourceURI resourceURI: String?) {
+        guard let uri = resourceURI else { return; }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil);
+        
+        let id: String;
+        switch type {
+            case .characters:
+                id = String(describing: CharacterDetailViewController.self);
+            case .comics:
+                id = String(describing: ComicDetailViewController.self);
+            case .creators:
+                id = String(describing: CreatorDetailViewController.self);
+            case .events:
+                id = String(describing: EventDetailViewController.self);
+            case .series:
+                id = String(describing: SerieDetailViewController.self);
+            case .stories:
+                id = String(describing: StoryDetailViewController.self);
+        }
+        
+        let viewController: UIViewController = storyboard.instantiateViewController(withIdentifier: id);
+        (viewController as? EntityDetailViewController)?.resourceURI = uri;
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            // TODO: Shouldn't be opened in a new window if there is already a form opened
+            viewController.modalPresentationStyle = .formSheet
+            self.present(viewController, animated: true, completion: nil);
+        }
+        else {
+            self.navigationController?.pushViewController(viewController, animated: true);
+        }
+    }
 }
 
 
@@ -94,39 +129,12 @@ extension EntityDetailViewController: UITableViewDataSource {
 // MARK: UITableView Delegate
 extension EntityDetailViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil);
-        
         let item = self.entityDetailViewModel.itemFor(indexPath);
         if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
             self.tableView.deselectRow(at: selectedIndexPath, animated: false);
         }
-        let id: String;
         
-        switch item.type {
-        case .characters:
-            id = String(describing: CharacterDetailViewController.self);
-        case .comics:
-            id = String(describing: ComicDetailViewController.self);
-        case .creators:
-            id = String(describing: CreatorDetailViewController.self);
-        case .events:
-            id = String(describing: EventDetailViewController.self);
-        case .series:
-            id = String(describing: SerieDetailViewController.self);
-        case .stories:
-            id = String(describing: StoryDetailViewController.self);
-        }
-        
-        let viewController: UIViewController = storyboard.instantiateViewController(withIdentifier: id);
-        (viewController as? EntityDetailViewController)?.resourceURI = item.resourceURI;
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            // TODO: Shouldn't be opened in a new window if there is already a form opened
-            viewController.modalPresentationStyle = .formSheet
-            self.present(viewController, animated: true, completion: nil);
-        }
-        else {
-            self.navigationController?.pushViewController(viewController, animated: true);
-        }
+        self.presentEntityViewController(for: item.type, withResourceURI: item.resourceURI);
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

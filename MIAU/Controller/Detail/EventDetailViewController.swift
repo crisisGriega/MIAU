@@ -107,4 +107,17 @@ class EventDetailViewController: EntityDetailViewController {
             UIApplication.shared.open(_url, options: [:], completionHandler: nil);
         }
     }
+    
+    @IBAction func onRelatedEventTapped(_ sender: UIButton) {
+        var uri: String? = nil;
+        
+        if sender == self.btPrevious {
+            uri = self.viewModel.previousURL;
+        }
+        else if sender == self.btNext {
+            uri = self.viewModel.nextURL
+        }
+        
+        self.presentEntityViewController(for: .events, withResourceURI: uri)
+    }
 }

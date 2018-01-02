@@ -30,4 +30,8 @@ class StoryDetailViewModel: EntityDetailViewModel {
     var originalIssueTitle: String? {
         return (self.entity as? MarvelStory)?.originalIssue?.name;
     }
+    
+    var originalIssueURL: String? {
+        return (self.entity as? MarvelStory)?.originalIssue?.resourceURI;
+    }
 }

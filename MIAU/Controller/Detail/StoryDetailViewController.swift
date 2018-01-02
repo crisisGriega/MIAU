@@ -73,4 +73,10 @@ class StoryDetailViewController: EntityDetailViewController {
         let nameEnd: CGFloat = self.lbType.frame.origin.y + self.lbType.frame.size.height;
         self.title = scrollView.contentOffset.y > nameEnd ? self.lbType.text : nil;
     }
+    
+    
+    // MARK: Actions
+    @IBAction func onOriginalIssueTapped(_ sender: UIButton) {
+        self.presentEntityViewController(for: .comics, withResourceURI: self.viewModel.originalIssueURL);
+    }
 }

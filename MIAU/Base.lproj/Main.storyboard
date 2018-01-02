@@ -442,12 +442,18 @@
                                                     <state key="normal" title="&lt; Previous">
                                                         <color key="titleColor" red="0.31764705882352939" green="0.5490196078431373" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onRelatedEventTapped:" destination="iIT-sU-OOC" eventType="touchUpInside" id="QST-ef-fia"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lux-Mz-Ywj">
                                                     <rect key="frame" x="83" y="0.0" width="73" height="30"/>
                                                     <state key="normal" title="Next &gt;">
                                                         <color key="titleColor" red="0.31764705882352939" green="0.5490196078431373" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onRelatedEventTapped:" destination="iIT-sU-OOC" eventType="touchUpInside" id="0at-Se-etP"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -589,12 +595,18 @@
                                                     <state key="normal" title="&lt; Previous">
                                                         <color key="titleColor" red="0.31764705879999999" green="0.54901960780000003" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onRelatedEventTapped:" destination="YOv-Pl-EA3" eventType="touchUpInside" id="2NZ-nc-cfc"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaF-4o-z4b">
                                                     <rect key="frame" x="83" y="0.0" width="73" height="30"/>
                                                     <state key="normal" title="Next &gt;">
                                                         <color key="titleColor" red="0.31764705879999999" green="0.54901960780000003" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onRelatedEventTapped:" destination="YOv-Pl-EA3" eventType="touchUpInside" id="RGN-MQ-nH6"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -701,6 +713,9 @@
                                             <state key="normal" title="Original Issue">
                                                 <color key="titleColor" red="0.31764705882352939" green="0.5490196078431373" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="onOriginalIssueTapped:" destination="mO2-hV-VpZ" eventType="touchUpInside" id="abh-h7-52t"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48B-5S-svx">
                                             <rect key="frame" x="10" y="10" width="32" height="32"/>
@@ -849,7 +864,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bt-close" width="40" height="40"/>
+        <image name="bt-close" width="32" height="32"/>
         <image name="marvel-logo" width="248" height="90"/>
     </resources>
     <inferredMetricsTieBreakers>
