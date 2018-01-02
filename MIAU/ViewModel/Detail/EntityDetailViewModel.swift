@@ -18,6 +18,9 @@ class EntityDetailViewModel {
             }
             
             self.sections.removeAll();
+            if let characters = value.characters, !characters.isEmpty {
+                self.sections.append(characters);
+            }
             if let comics = value.comics, !comics.isEmpty {
                 self.sections.append(comics);
             }

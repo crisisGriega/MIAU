@@ -68,6 +68,7 @@ class MarvelCreator: MarvelEntityRepresentable, Mappable {
         self.firstName <- map["firstName"];
         self.middleName <- map["middleName"];
         self.lastName <- map["lastName"];
+        self.characters <- map["characters.items"];
         self.comics <- map["comics.items"];
         self.events <- map["events.items"];
         self.series <- map["series.items"];
