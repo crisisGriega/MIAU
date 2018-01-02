@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ComicDetailViewController: EntityDetailViewController {
 
@@ -42,7 +43,17 @@ class ComicDetailViewController: EntityDetailViewController {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad();
-        self.tableView.delegate = self;
+        
+        if let uri = resourceURI {
+            DataProvider.default.getEntity(of: .comics, withURL: uri, completion: { (result: Result<[MarvelComic]>) in
+                if result.isSuccess {
+                    self.comic = result.value?.first;
+                    self.updateUIElements();
+                    self.tableView.reloadData();
+                    self.view.layoutIfNeeded();
+                }
+            });
+        }
     }
 
     
@@ -83,21 +94,9 @@ class ComicDetailViewController: EntityDetailViewController {
         self.lbPages.isHidden = self.viewModel.isPagesHidden;
         self.lbPages.text = self.viewModel.pages;
     }
-}
-
-
-// MARK: UITableView Delegate
-extension ComicDetailViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: Open a new page passing the resource URI
-    }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let nameEnd: CGFloat = self.lbTitle.frame.origin.y + self.lbTitle.frame.size.height;
         self.title = scrollView.contentOffset.y > nameEnd ? self.lbTitle.text : nil;
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return nil;
     }
 }

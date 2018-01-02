@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+
 
 class EventDetailViewController: EntityDetailViewController {
 
@@ -43,7 +45,17 @@ class EventDetailViewController: EntityDetailViewController {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad();
-        self.tableView.delegate = self;
+        
+        if let uri = resourceURI {
+            DataProvider.default.getEntity(of: .comics, withURL: uri, completion: { (result: Result<[MarvelEvent]>) in
+                if result.isSuccess {
+                    self.event = result.value?.first;
+                    self.updateUIElements();
+                    self.tableView.reloadData();
+                    self.view.layoutIfNeeded();
+                }
+            });
+        }
     }
     
     
@@ -73,6 +85,11 @@ class EventDetailViewController: EntityDetailViewController {
         self.btNext.setTitle(self.viewModel.nextName, for: .normal);
     }
     
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let nameEnd: CGFloat = self.lbTitle.frame.origin.y + self.lbTitle.frame.size.height;
+        self.title = scrollView.contentOffset.y > nameEnd ? self.lbTitle.text : nil;
+    }
+    
     
     // MARK: Actions
     @IBAction func moreInfoButtonTapped(_ sender: UIButton) {
@@ -89,22 +106,5 @@ class EventDetailViewController: EntityDetailViewController {
         if let value: String = url, let _url: URL = URL(string: value) {
             UIApplication.shared.open(_url, options: [:], completionHandler: nil);
         }
-    }
-}
-
-
-// MARK: UITableView Delegate
-extension EventDetailViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: Open a new page passing the resource URI
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let nameEnd: CGFloat = self.lbTitle.frame.origin.y + self.lbTitle.frame.size.height;
-        self.title = scrollView.contentOffset.y > nameEnd ? self.lbTitle.text : nil;
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return nil;
     }
 }

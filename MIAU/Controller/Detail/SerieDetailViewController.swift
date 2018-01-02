@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+
 
 class SerieDetailViewController: EntityDetailViewController {
 
@@ -41,7 +43,17 @@ class SerieDetailViewController: EntityDetailViewController {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad();
-        self.tableView.delegate = self;
+        
+        if let uri = resourceURI {
+            DataProvider.default.getEntity(of: .comics, withURL: uri, completion: { (result: Result<[MarvelSerie]>) in
+                if result.isSuccess {
+                    self.serie = result.value?.first;
+                    self.updateUIElements();
+                    self.tableView.reloadData();
+                    self.view.layoutIfNeeded();
+                }
+            });
+        }
     }
     
     
@@ -70,6 +82,11 @@ class SerieDetailViewController: EntityDetailViewController {
         self.btNext.setTitle(self.viewModel.nextName, for: .normal);
     }
     
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let nameEnd: CGFloat = self.lbTitle.frame.origin.y + self.lbTitle.frame.size.height;
+        self.title = scrollView.contentOffset.y > nameEnd ? self.lbTitle.text : nil;
+    }
+    
     
     // MARK: Actions
     @IBAction func onDetailTapped(_ sender: UIButton) {
@@ -79,22 +96,5 @@ class SerieDetailViewController: EntityDetailViewController {
             return;
         }
         UIApplication.shared.open(url, options: [:], completionHandler: nil);
-    }
-}
-
-
-// MARK: UITableView Delegate
-extension SerieDetailViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: Open a new page passing the resource URI
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let nameEnd: CGFloat = self.lbTitle.frame.origin.y + self.lbTitle.frame.size.height;
-        self.title = scrollView.contentOffset.y > nameEnd ? self.lbTitle.text : nil;
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return nil;
     }
 }

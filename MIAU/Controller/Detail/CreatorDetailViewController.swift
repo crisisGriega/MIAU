@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class CreatorDetailViewController: EntityDetailViewController {
 
@@ -39,7 +40,17 @@ class CreatorDetailViewController: EntityDetailViewController {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad();
-        self.tableView.delegate = self;
+        
+        if let uri = resourceURI {
+            DataProvider.default.getEntity(of: .comics, withURL: uri, completion: { (result: Result<[MarvelCreator]>) in
+                if result.isSuccess {
+                    self.creator = result.value?.first;
+                    self.updateUIElements();
+                    self.tableView.reloadData();
+                    self.view.layoutIfNeeded();
+                }
+            });
+        }
     }
     
     
@@ -75,20 +86,9 @@ class CreatorDetailViewController: EntityDetailViewController {
         self.lbDescription.text = self.viewModel.description;
         self.btDetail.isHidden = self.viewModel.isDetailHidden;
     }
-}
-
-// MARK: UITableView Delegate
-extension CreatorDetailViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: Open a new page passing the resource URI
-    }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let nameEnd: CGFloat = self.lbName.frame.origin.y + self.lbName.frame.size.height;
-        self.title = scrollView.contentOffset.y > nameEnd ? self.lbName.text : nil;
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return nil;
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let nameEnd: CGFloat = self.lbName.frame.origin.y + self.lbName.frame.size.height;
+    self.title = scrollView.contentOffset.y > nameEnd ? self.lbName.text : nil;
     }
 }

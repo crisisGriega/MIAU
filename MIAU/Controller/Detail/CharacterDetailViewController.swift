@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+
 
 class CharacterDetailViewController: EntityDetailViewController {
     
@@ -41,7 +43,17 @@ class CharacterDetailViewController: EntityDetailViewController {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad();
-        self.tableView.delegate = self;
+        
+        if let uri = resourceURI {
+            DataProvider.default.getEntity(of: .characters, withURL: uri, completion: { (result: Result<[MarvelCharacter]>) in
+                if result.isSuccess {
+                    self.character = result.value?.first;
+                    self.updateUIElements();
+                    self.tableView.reloadData();
+                    self.view.layoutIfNeeded();
+                }
+            })
+        }
     }
     
     
@@ -67,6 +79,11 @@ class CharacterDetailViewController: EntityDetailViewController {
         self.btComicLink.isHidden = self.viewModel.isComicLinkHidden;
     }
     
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let nameEnd: CGFloat = self.lbName.frame.origin.y + self.lbName.frame.size.height;
+        self.title = scrollView.contentOffset.y > nameEnd ? self.lbName.text : nil;
+    }
+    
     
     // MARK: Actions
     @IBAction func moreInfoButtonTapped(_ sender: UIButton) {
@@ -86,22 +103,5 @@ class CharacterDetailViewController: EntityDetailViewController {
         if let value: String = url, let _url: URL = URL(string: value) {
             UIApplication.shared.open(_url, options: [:], completionHandler: nil);
         }
-    }
-}
-
-
-// MARK: UITableView Delegate
-extension CharacterDetailViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: Open a new page passing the resource URI
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let nameEnd: CGFloat = self.lbName.frame.origin.y + self.lbName.frame.size.height;
-        self.title = scrollView.contentOffset.y > nameEnd ? self.lbName.text : nil;
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return nil;
     }
 }

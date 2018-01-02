@@ -40,6 +40,16 @@ class DataProvider {
         
         return request;
     }
+    
+    @discardableResult func getEntity<Entity: Mappable>(of entityType: MarvelEntityType, withURL uri: String, completion: @escaping (Result<[Entity]>) -> Void) -> DataRequest  where Entity: MarvelEntityRepresentable {
+        let args = ["limit": "1"];
+        let url = self.apiConnector.urlFor(uri, args: args);
+        let request = Alamofire.request(url).responseArray(keyPath: "data.results") { (response: DataResponse<[Entity]>) in
+            completion(response.result);
+        }
+        
+        return request;
+    }
 }
 
 

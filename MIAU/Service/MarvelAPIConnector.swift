@@ -33,21 +33,19 @@ class MarvelAPIConnector {
             baseURL.append("/\(_id)")
         }
         
-        // Adding authorization parameters
-        let timeStamp = String(describing: Date().timeIntervalSince1970);
-        
-        let hash = "\(timeStamp)\(self.privateKey)\(self.publicKey)".MD5;
-        
-        baseURL.append("?apikey=\(self.publicKey)&hash=\(hash)&ts=\(timeStamp)");
-        
-        if let _args = args {
-            for arg in _args {
-                baseURL.append("&\(arg.key)=\(arg.value)");
-            }
-        }
-        
+        baseURL.append(self.authParameters);
+        baseURL.append(self.argsToString(args));
         
         return baseURL;
+    }
+    
+    func urlFor(_ resourceURI: String, args: [String: String]? = nil) -> String {
+        var uri: String = resourceURI;
+        
+        uri.append(self.authParameters);
+        uri.append(self.argsToString(args));
+        
+        return uri;
     }
 }
 
@@ -72,6 +70,24 @@ private extension MarvelAPIConnector {
     
     var privateKey: String {
         return self.configurationValue("private-key");
+    }
+    
+    var authParameters: String {
+        let timeStamp = String(describing: Date().timeIntervalSince1970);
+        let hash = "\(timeStamp)\(self.privateKey)\(self.publicKey)".MD5;
+        
+        return "?apikey=\(self.publicKey)&hash=\(hash)&ts=\(timeStamp)";
+    }
+    
+    func argsToString(_ args: [String: String]?) -> String {
+        var value: String = "";
+        if let _args = args {
+            for arg in _args {
+                value.append("&\(arg.key)=\(arg.value)");
+            }
+        }
+        
+        return value;
     }
     
     func configurationValue(_ value: String) -> String {

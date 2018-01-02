@@ -184,13 +184,13 @@
 		56553A131FF9931C00380F31 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				56553A311FFAC6AE00380F31 /* EntityDetailViewController.swift */,
 				56553A111FF9916B00380F31 /* CharacterDetailViewController.swift */,
 				56553A1D1FFAB77D00380F31 /* ComicDetailViewController.swift */,
 				56553A1F1FFAB82A00380F31 /* CreatorDetailViewController.swift */,
 				56553A211FFAB83900380F31 /* EventDetailViewController.swift */,
 				56553A231FFAB84D00380F31 /* SerieDetailViewController.swift */,
 				56553A251FFAB85B00380F31 /* StoryDetailViewController.swift */,
-				56553A311FFAC6AE00380F31 /* EntityDetailViewController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";

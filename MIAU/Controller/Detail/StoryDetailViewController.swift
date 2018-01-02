@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+
 
 class StoryDetailViewController: EntityDetailViewController {
 
@@ -35,7 +37,17 @@ class StoryDetailViewController: EntityDetailViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        self.tableView.delegate = self;
+        
+        if let uri = resourceURI {
+            DataProvider.default.getEntity(of: .comics, withURL: uri, completion: { (result: Result<[MarvelStory]>) in
+                if result.isSuccess {
+                    self.story = result.value?.first;
+                    self.updateUIElements();
+                    self.tableView.reloadData();
+                    self.view.layoutIfNeeded();
+                }
+            });
+        }
     }
     
     
@@ -56,21 +68,9 @@ class StoryDetailViewController: EntityDetailViewController {
         self.btOriginalIssue.isHidden = self.viewModel.isOriginalIssueHidden;
         self.btOriginalIssue.setTitle(self.viewModel.originalIssueTitle, for: .normal);
     }
-}
-
-
-// MARK: UITableView Delegate
-extension StoryDetailViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: Open a new page passing the resource URI
-    }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let nameEnd: CGFloat = self.lbType.frame.origin.y + self.lbType.frame.size.height;
         self.title = scrollView.contentOffset.y > nameEnd ? self.lbType.text : nil;
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return nil;
     }
 }

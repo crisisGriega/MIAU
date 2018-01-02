@@ -14,7 +14,7 @@
         <!--Character Detail View Controller-->
         <scene sceneID="poX-Vl-Plx">
             <objects>
-                <viewController id="97B-EK-VLI" customClass="CharacterDetailViewController" customModule="MIAU" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CharacterDetailViewController" id="97B-EK-VLI" customClass="CharacterDetailViewController" customModule="MIAU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xPh-bP-t4W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,7 +151,7 @@
         <!--Comic Detail View Controller-->
         <scene sceneID="vXW-ZF-aBZ">
             <objects>
-                <viewController id="wIM-Qx-D8D" customClass="ComicDetailViewController" customModule="MIAU" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ComicDetailViewController" id="wIM-Qx-D8D" customClass="ComicDetailViewController" customModule="MIAU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P61-QT-8xB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -274,7 +274,7 @@
         <!--Creator Detail View Controller-->
         <scene sceneID="sJJ-4r-z2g">
             <objects>
-                <viewController id="iNf-qG-2PC" customClass="CreatorDetailViewController" customModule="MIAU" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreatorDetailViewController" id="iNf-qG-2PC" customClass="CreatorDetailViewController" customModule="MIAU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o5X-Kb-j9j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -357,7 +357,7 @@
         <!--Event Detail View Controller-->
         <scene sceneID="Yb5-Qf-lcn">
             <objects>
-                <viewController id="iIT-sU-OOC" customClass="EventDetailViewController" customModule="MIAU" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventDetailViewController" id="iIT-sU-OOC" customClass="EventDetailViewController" customModule="MIAU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1x2-WV-Sqa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -493,7 +493,7 @@
         <!--Serie Detail View Controller-->
         <scene sceneID="7cO-ZF-oeL">
             <objects>
-                <viewController id="YOv-Pl-EA3" customClass="SerieDetailViewController" customModule="MIAU" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SerieDetailViewController" id="YOv-Pl-EA3" customClass="SerieDetailViewController" customModule="MIAU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6jc-5M-737">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -613,7 +613,7 @@
         <!--Story Detail View Controller-->
         <scene sceneID="HLP-8c-IM5">
             <objects>
-                <viewController id="mO2-hV-VpZ" customClass="StoryDetailViewController" customModule="MIAU" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StoryDetailViewController" id="mO2-hV-VpZ" customClass="StoryDetailViewController" customModule="MIAU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Mm-ka-V3H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
